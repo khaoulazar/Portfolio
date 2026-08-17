@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>secteur d'activité.htm</title>
+<meta charset="utf-8"/>
+<style>
+.details {visibility:hidden;}
+.procedureTitle{color: #1d3649;font-weight: 600;font-size: 20px;line-height: 24px;margin-left: 32px;font-family: monospace;}
+.pivot{color:#264A60;background-color:#FFFFFF;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#E0E0E0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#F9F9FB;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#F9F9FB;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #AEAEAE;}
+.hDR{border-top:1px none #AEAEAE;}
+.vCR{border-left:1px none #AEAEAE;}
+.vDR{border-left:1px none #AEAEAE;}
+.hCC{border-bottom:1px none #AEAEAE;}
+.hDC{border-bottom:1px none #AEAEAE;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #AEAEAE;}
+.pivot{margin: 80px 40px 40px 80px;}
+.pivot thead.tr.th {padding:0px;border-spacing:0px}
+.hal{text-align:left} .hac{text-align:center} .har{text-align:right}
+.val{vertical-align:left} .vac{vertical-align:center} .var{vertical-align:right}
+</style>
+</head>
+<body>
+
+<div>
+<style>
+*{
+border-collapse:collapse;
+}
+.default .title{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:bold;
+padding-left:6pt;
+vertical-align:middle;
+font-size:11pt;
+padding-bottom:6pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .layers{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .cornerLabels{
+background-color:#ffffff;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .columnLabels{
+background-color:#ffffff;
+padding-top:2pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:bottom;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:center;
+padding-right:8pt;
+}
+.default .rowLabels{
+background-color:#e0e0e0;
+padding-top:3pt;
+color:#264a60;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .o, .default .e{
+background-color:#f9f9fb;
+padding-top:3pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:2pt;
+font-family:sans-serif;
+text-align:right;
+padding-right:8pt;
+}
+.default .o{
+background-color:null;
+color:null;
+}
+.default .e{
+background-color:#f9f9fb;
+color:#010205;
+}
+.default .caption{
+background-color:#ffffff;
+padding-top:1pt;
+color:#010205;
+font-weight:normal;
+padding-left:6pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:1pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:8pt;
+}
+.default .footnotes{
+background-color:#ffffff;
+padding-top:2pt;
+color:#010205;
+font-weight:normal;
+padding-left:18pt;
+vertical-align:top;
+font-size:9pt;
+padding-bottom:3pt;
+font-family:sans-serif;
+text-align:left;
+padding-right:18pt;
+}
+.default .titleLayerSeparator{
+border-top:1px none #152935;
+}
+.default .innerFrameBd{
+border-top:1px none #152935;
+border-right:1px none #152935;
+border-left:1px none #152935;
+border-bottom:1px solid #152935;
+}
+.default .dataAreaLeft{
+border-left:1px none #152935;
+}
+.default .dataAreaTop{
+border-top:1px solid #152935;
+}
+.default .hCR{
+border-top:1px solid #aeaeae;
+}
+.default .hDR{
+border-top:1px none #aeaeae;
+}
+.default .vCR{
+border-left:1px none #aeaeae;
+}
+.default .vDR{
+border-left:1px none #aeaeae;
+}
+.default .hCC{
+border-bottom:1px none #aeaeae;
+}
+.default .hDC{
+border-bottom:1px none #aeaeae;
+}
+.default .vCC{
+border-right:1px solid #e0e0e0;
+}
+.default .vDC{
+border-right:1px none #aeaeae;
+}
+</style>
+</div>
+
+<div>
+
+<style>
+.pivot{color:#264a60;background-color:#ffffff;font-family:sans-serif;font-size:9pt;font-weight:normal;}
+.pivot th{font-weight:normal;}
+.pivot caption{padding-top:1pt;color:#010205;font-weight:bold;padding-left:6pt;vertical-align:middle;font-size:11pt;padding-bottom:6pt;text-align:center;padding-right:8pt;}
+.layers{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:bottom;padding-bottom:3pt;text-align:left;padding-right:8pt;}
+.cornerLabels{padding-top:3pt;padding-left:6pt;vertical-align:bottom;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot thead th:not:(.cornerLabels){padding-top:2pt;padding-left:6pt;vertical-align:bottom;padding-bottom:2pt;text-align:center;padding-right:8pt;}
+.pivot tbody th{background-color:#e0e0e0;padding-top:3pt;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:left;padding-right:8pt;}
+.pivot tbody td{background-color:#f9f9fb;padding-top:3pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:2pt;text-align:right;padding-right:8pt;}
+.pivot tbody tr:nth-child(even) td{background-color:#f9f9fb;color:#010205;}
+.caption{padding-top:1pt;color:#010205;padding-left:6pt;vertical-align:top;padding-bottom:1pt;text-align:left;padding-right:8pt;}
+.pivot tfoot tr td{padding-top:2pt;color:#010205;padding-left:18pt;vertical-align:top;padding-bottom:3pt;text-align:left;padding-right:18pt;}
+.titleLayerSeparator{border-top:1px none #152935;}
+.pivot tbody{border-top:1px none #152935;border-right:1px none #152935;border-left:1px none #152935;border-bottom:1px solid #152935;}
+.pivot tbody tr td:first-of-type{border-left:1px none #152935;}
+.pivot tbody tr:first-child td{border-top:1px solid #152935;}
+.pivot tbody tr + tr{border-top:1px solid #aeaeae;}
+.hDR{border-top:1px none #aeaeae;}
+.vCR{border-left:1px none #aeaeae;}
+.vDR{border-left:1px none #aeaeae;}
+.hCC{border-bottom:1px none #aeaeae;}
+.hDC{border-bottom:1px none #aeaeae;}
+.pivot thead th:not(:last-child), .pivot td:not(:last-child){border-right:1px solid #e0e0e0;}
+.vDC{border-right:1px none #aeaeae;}
+</style>
+<table class="pivot" data-rows="1,0,1,501,0,0" data-cols="2,4" data-heights="27,0,36,23592,0" data-widths="222,552" data-curCounts="501,4" data-curSizess="501,4">
+<caption colspan="6">Secteur d'activité</caption>
+<thead>
+<tr><th class="cornerLabels" colspan="2">&nbsp;</th><th>Frequency</th><th>Percent</th><th>Valid Percent</th><th>Cumulative Percent</th></tr>
+</thead>
+<tbody data-rect="0,500,0,3">
+<tr><th rowspan="495" style="min-width:62px">Valid</th><th style="min-width:160px">111 Culture de céréales (à l'exception du riz), de légumineuses et de graines oléagineuses</th><td style="min-width:76px">1782</td><td style="min-width:67px">2.1</td><td style="min-width:91px">7.5</td><td style="min-width:96px">7.5</td></tr>
+<tr><th>112 Culture du riz</th><td>16</td><td>.0</td><td>.1</td><td>7.6</td></tr>
+<tr><th>113 Culture de légumes, de melons, de racines et de tubercules</th><td>965</td><td>1.2</td><td>4.1</td><td>11.6</td></tr>
+<tr><th>114 Culture de la canne à sucre</th><td>12</td><td>.0</td><td>.1</td><td>11.7</td></tr>
+<tr><th>115 Culture du tabac</th><td>18</td><td>.0</td><td>.1</td><td>11.8</td></tr>
+<tr><th>116 Culture de plantes à fibres</th><td>3</td><td>.0</td><td>.0</td><td>11.8</td></tr>
+<tr><th>117 Culture fourragères</th><td>46</td><td>.1</td><td>.2</td><td>12.0</td></tr>
+<tr><th>119 Autres cultures non permanentes</th><td>27</td><td>.0</td><td>.1</td><td>12.1</td></tr>
+<tr><th>121 Culture de la vigne</th><td>8</td><td>.0</td><td>.0</td><td>12.1</td></tr>
+<tr><th>122 Culture des palmiers-dattiers</th><td>9</td><td>.0</td><td>.0</td><td>12.2</td></tr>
+<tr><th>123 Culture d'autres fruits tropicaux et subtropicaux</th><td>9</td><td>.0</td><td>.0</td><td>12.2</td></tr>
+<tr><th>124 Culture d'agrumes</th><td>103</td><td>.1</td><td>.4</td><td>12.6</td></tr>
+<tr><th>125 Culture de fruits à pépins et à noyau</th><td>42</td><td>.1</td><td>.2</td><td>12.8</td></tr>
+<tr><th>126 Culture d'autres fruits d'arbres ou d'arbustes et de fruits à coque</th><td>128</td><td>.2</td><td>.5</td><td>13.3</td></tr>
+<tr><th>127 Culture de l'olivier</th><td>351</td><td>.4</td><td>1.5</td><td>14.8</td></tr>
+<tr><th>128 Culture d'autres fruits oléagineux</th><td>13</td><td>.0</td><td>.1</td><td>14.9</td></tr>
+<tr><th>129 Autres cultures permanentes</th><td>22</td><td>.0</td><td>.1</td><td>15.0</td></tr>
+<tr><th>130 Multiplication de plantes</th><td>8</td><td>.0</td><td>.0</td><td>15.0</td></tr>
+<tr><th>141 Élevage de vaches laitières</th><td>527</td><td>.6</td><td>2.2</td><td>17.2</td></tr>
+<tr><th>142 Élevage d'autres bovins et de buffles</th><td>49</td><td>.1</td><td>.2</td><td>17.4</td></tr>
+<tr><th>143 Élevage de chevaux et d'autres équidés</th><td>2</td><td>.0</td><td>.0</td><td>17.4</td></tr>
+<tr><th>144 Élevage de chameaux et d'autres camélidés</th><td>2</td><td>.0</td><td>.0</td><td>17.4</td></tr>
+<tr><th>145 Élevage d'ovins et de caprins</th><td>1354</td><td>1.6</td><td>5.7</td><td>23.2</td></tr>
+<tr><th>146 Élevage de volailles</th><td>35</td><td>.0</td><td>.1</td><td>23.3</td></tr>
+<tr><th>149 Élevage d'autres animaux</th><td>33</td><td>.0</td><td>.1</td><td>23.4</td></tr>
+<tr><th>150 Culture et élevage associés</th><td>1191</td><td>1.4</td><td>5.0</td><td>28.5</td></tr>
+<tr><th>161 Activités de soutien aux cultures</th><td>6</td><td>.0</td><td>.0</td><td>28.5</td></tr>
+<tr><th>163 Traitement primaire des récoltes</th><td>5</td><td>.0</td><td>.0</td><td>28.5</td></tr>
+<tr><th>164 Traitement des semences</th><td>4</td><td>.0</td><td>.0</td><td>28.5</td></tr>
+<tr><th>170 Chasse, piégeage et services annexes</th><td>2</td><td>.0</td><td>.0</td><td>28.5</td></tr>
+<tr><th>210 Sylviculture et autres activités forestières</th><td>2</td><td>.0</td><td>.0</td><td>28.5</td></tr>
+<tr><th>220 Exploitation forestière</th><td>4</td><td>.0</td><td>.0</td><td>28.6</td></tr>
+<tr><th>240 Services de soutien à l'exploitation forestière</th><td>4</td><td>.0</td><td>.0</td><td>28.6</td></tr>
+<tr><th>311 Pêche en mer</th><td>288</td><td>.3</td><td>1.2</td><td>29.8</td></tr>
+<tr><th>312 Pêche en eau douce</th><td>2</td><td>.0</td><td>.0</td><td>29.8</td></tr>
+<tr><th>321 Aquaculture en mer</th><td>3</td><td>.0</td><td>.0</td><td>29.8</td></tr>
+<tr><th>710 Extraction de minerais de fer</th><td>2</td><td>.0</td><td>.0</td><td>29.8</td></tr>
+<tr><th>720 Extraction de minerais de métaux non ferreux</th><td>12</td><td>.0</td><td>.1</td><td>29.9</td></tr>
+<tr><th>811 Extraction de pierres ornementales et de construction, de calcaire industriel, de gypse, de craie et d'ardoise</th><td>19</td><td>.0</td><td>.1</td><td>29.9</td></tr>
+<tr><th>812 Exploitation de gravières et sablières, extraction d'argiles et de kaolin</th><td>11</td><td>.0</td><td>.0</td><td>30.0</td></tr>
+<tr><th>820 Extraction de phosphates naturels</th><td>14</td><td>.0</td><td>.1</td><td>30.0</td></tr>
+<tr><th>891 Extraction des minéraux chimiques et d'engrais minéraux (hors phosphates naturels)</th><td>1</td><td>.0</td><td>.0</td><td>30.1</td></tr>
+<tr><th>893 Production de sel</th><td>3</td><td>.0</td><td>.0</td><td>30.1</td></tr>
+<tr><th>899 Autres activités extractives n.c.a.</th><td>3</td><td>.0</td><td>.0</td><td>30.1</td></tr>
+<tr><th>1011 Transformation et conservation de la viande de boucherie</th><td>8</td><td>.0</td><td>.0</td><td>30.1</td></tr>
+<tr><th>1012 Transformation et conservation de la viande de volaille</th><td>3</td><td>.0</td><td>.0</td><td>30.1</td></tr>
+<tr><th>1013 Préparation de produits à base de viande</th><td>7</td><td>.0</td><td>.0</td><td>30.2</td></tr>
+<tr><th>1021 Congélation et surgélation de poissons, de crustacés et de mollusques</th><td>58</td><td>.1</td><td>.2</td><td>30.4</td></tr>
+<tr><th>1022 Autres activités de transformation et de conservation de poissons, de crustacés et de mollusques</th><td>42</td><td>.1</td><td>.2</td><td>30.6</td></tr>
+<tr><th>1031 Transformation et conservation de tomates</th><td>4</td><td>.0</td><td>.0</td><td>30.6</td></tr>
+<tr><th>1032 Préparation de jus de fruits et légumes</th><td>7</td><td>.0</td><td>.0</td><td>30.6</td></tr>
+<tr><th>1039 Transformation et conservation d'autres fruits et légumes</th><td>43</td><td>.1</td><td>.2</td><td>30.8</td></tr>
+<tr><th>1041 Fabrication d'huiles d'olives</th><td>4</td><td>.0</td><td>.0</td><td>30.8</td></tr>
+<tr><th>1042 Fabrication d'huiles d'arganier</th><td>2</td><td>.0</td><td>.0</td><td>30.8</td></tr>
+<tr><th>1043 Fabrication d'autres huiles et graisses non comestibles</th><td>3</td><td>.0</td><td>.0</td><td>30.8</td></tr>
+<tr><th>1044 Fabrication de margarine et graisses comestibles similaires</th><td>1</td><td>.0</td><td>.0</td><td>30.8</td></tr>
+<tr><th>1051 Exploitation de laiteries et fabrication de fromage</th><td>45</td><td>.1</td><td>.2</td><td>31.0</td></tr>
+<tr><th>1052 Fabrication de glaces et sorbets</th><td>7</td><td>.0</td><td>.0</td><td>31.1</td></tr>
+<tr><th>1061 Travail des grains</th><td>25</td><td>.0</td><td>.1</td><td>31.2</td></tr>
+<tr><th>1062 Fabrication de produits amylacés</th><td>8</td><td>.0</td><td>.0</td><td>31.2</td></tr>
+<tr><th>1071 Fabrication de pain et de pâtisserie fraîche</th><td>182</td><td>.2</td><td>.8</td><td>32.0</td></tr>
+<tr><th>1072 Fabrication de biscuits, biscottes et pâtisseries de conservation</th><td>16</td><td>.0</td><td>.1</td><td>32.0</td></tr>
+<tr><th>1073 Fabrication de pâtes alimentaires et de couscous</th><td>8</td><td>.0</td><td>.0</td><td>32.1</td></tr>
+<tr><th>1081 Fabrication de sucre</th><td>4</td><td>.0</td><td>.0</td><td>32.1</td></tr>
+<tr><th>1082 Fabrication de cacao, chocolat et de produits de confiserie</th><td>6</td><td>.0</td><td>.0</td><td>32.1</td></tr>
+<tr><th>1083 Transformation du thé et du café</th><td>5</td><td>.0</td><td>.0</td><td>32.1</td></tr>
+<tr><th>1085 Fabrication de plats préparés</th><td>1</td><td>.0</td><td>.0</td><td>32.1</td></tr>
+<tr><th>1089 Fabrication d'autres produits alimentaires n.c.a.</th><td>18</td><td>.0</td><td>.1</td><td>32.2</td></tr>
+<tr><th>1091 Fabrication d'aliments pour animaux de ferme</th><td>14</td><td>.0</td><td>.1</td><td>32.3</td></tr>
+<tr><th>1104 Industrie des eaux minérales et autres eaux embouteillées</th><td>6</td><td>.0</td><td>.0</td><td>32.3</td></tr>
+<tr><th>1105 Industrie des boissons rafraîchissantes</th><td>13</td><td>.0</td><td>.1</td><td>32.4</td></tr>
+<tr><th>1200 Fabrication de produits à base de tabac</th><td>3</td><td>.0</td><td>.0</td><td>32.4</td></tr>
+<tr><th>1310 Préparation de fibres textiles et filature</th><td>12</td><td>.0</td><td>.1</td><td>32.4</td></tr>
+<tr><th>1320 Tissage</th><td>34</td><td>.0</td><td>.1</td><td>32.6</td></tr>
+<tr><th>1330 Ennoblissement textile</th><td>9</td><td>.0</td><td>.0</td><td>32.6</td></tr>
+<tr><th>1341 Fabrication manufacturière de tapis et moquettes</th><td>3</td><td>.0</td><td>.0</td><td>32.6</td></tr>
+<tr><th>1342 Fabrication manuelle de tapis</th><td>32</td><td>.0</td><td>.1</td><td>32.7</td></tr>
+<tr><th>1391 Fabrication d'étoffes à mailles</th><td>1</td><td>.0</td><td>.0</td><td>32.7</td></tr>
+<tr><th>1392 Fabrication d'articles textiles, sauf habillement</th><td>6</td><td>.0</td><td>.0</td><td>32.8</td></tr>
+<tr><th>1393 Fabrication artisanale d'articles textiles</th><td>6</td><td>.0</td><td>.0</td><td>32.8</td></tr>
+<tr><th>1394 Fabrication de ficelles, cordes et filets</th><td>3</td><td>.0</td><td>.0</td><td>32.8</td></tr>
+<tr><th>1396 Fabrication d'autres textiles techniques et industriels</th><td>2</td><td>.0</td><td>.0</td><td>32.8</td></tr>
+<tr><th>1399 Fabrication d'autres textiles n.c.a.</th><td>10</td><td>.0</td><td>.0</td><td>32.9</td></tr>
+<tr><th>1412 Fabrication de vêtements de travail</th><td>6</td><td>.0</td><td>.0</td><td>32.9</td></tr>
+<tr><th>1413 Fabrication de vêtements sur mesure</th><td>265</td><td>.3</td><td>1.1</td><td>34.0</td></tr>
+<tr><th>1414 Fabrication industrielle de vêtements de dessus</th><td>268</td><td>.3</td><td>1.1</td><td>35.1</td></tr>
+<tr><th>1415 Fabrication artisanale de vêtements traditionnels</th><td>149</td><td>.2</td><td>.6</td><td>35.8</td></tr>
+<tr><th>1416 Fabrication de vêtements de dessous</th><td>1</td><td>.0</td><td>.0</td><td>35.8</td></tr>
+<tr><th>1419 Fabrication d'autres vêtements et accessoires</th><td>14</td><td>.0</td><td>.1</td><td>35.8</td></tr>
+<tr><th>1431 Fabrication d'articles chaussants à mailles</th><td>1</td><td>.0</td><td>.0</td><td>35.8</td></tr>
+<tr><th>1439 Fabrication d'autres articles à mailles</th><td>4</td><td>.0</td><td>.0</td><td>35.8</td></tr>
+<tr><th>1511 Apprêt et tannage des cuirs</th><td>8</td><td>.0</td><td>.0</td><td>35.9</td></tr>
+<tr><th>1513 Fabrication d'articles de voyage, de maroquinerie et de sellerie</th><td>4</td><td>.0</td><td>.0</td><td>35.9</td></tr>
+<tr><th>1514 Fabrication d'articles traditionnels de voyage, de maroquinerie et de sellerie</th><td>7</td><td>.0</td><td>.0</td><td>35.9</td></tr>
+<tr><th>1521 Fabrication manufacturière de chaussures</th><td>27</td><td>.0</td><td>.1</td><td>36.0</td></tr>
+<tr><th>1522 Fabrication manuelle de chaussures</th><td>56</td><td>.1</td><td>.2</td><td>36.3</td></tr>
+<tr><th>1610 Sciage et rabotage du bois</th><td>21</td><td>.0</td><td>.1</td><td>36.4</td></tr>
+<tr><th>1621 Fabrication de placage et de panneaux de bois</th><td>5</td><td>.0</td><td>.0</td><td>36.4</td></tr>
+<tr><th>1623 Fabrication de charpentes et d'autres menuiseries</th><td>12</td><td>.0</td><td>.1</td><td>36.4</td></tr>
+<tr><th>1625 Fabrication d'objets divers en bois</th><td>85</td><td>.1</td><td>.4</td><td>36.8</td></tr>
+<tr><th>1629 Fabrication artisanale d'objets divers en bois; vannerie et sparterie</th><td>18</td><td>.0</td><td>.1</td><td>36.9</td></tr>
+<tr><th>1712 Fabrication de papier et de carton</th><td>2</td><td>.0</td><td>.0</td><td>36.9</td></tr>
+<tr><th>1721 Fabrication de papier et carton ondulés et d'emballages en papier ou en carton</th><td>10</td><td>.0</td><td>.0</td><td>36.9</td></tr>
+<tr><th>1722 Fabrication d'articles en papier à usage sanitaire ou domestique</th><td>4</td><td>.0</td><td>.0</td><td>36.9</td></tr>
+<tr><th>1723 Fabrication d'articles de papeterie</th><td>2</td><td>.0</td><td>.0</td><td>36.9</td></tr>
+<tr><th>1729 Fabrication d'autres articles en papier ou en carton</th><td>2</td><td>.0</td><td>.0</td><td>37.0</td></tr>
+<tr><th>1812 Autre imprimerie (labeur)</th><td>16</td><td>.0</td><td>.1</td><td>37.0</td></tr>
+<tr><th>1813 Activités de prépresse</th><td>2</td><td>.0</td><td>.0</td><td>37.0</td></tr>
+<tr><th>1920 Raffinage du pétrole</th><td>1</td><td>.0</td><td>.0</td><td>37.0</td></tr>
+<tr><th>2011 Fabrication de gaz industriels</th><td>3</td><td>.0</td><td>.0</td><td>37.0</td></tr>
+<tr><th>2013 Fabrication d'autres produits chimiques inorganiques de base</th><td>1</td><td>.0</td><td>.0</td><td>37.1</td></tr>
+<tr><th>2015 Fabrication de produits azotés et d'engrais</th><td>2</td><td>.0</td><td>.0</td><td>37.1</td></tr>
+<tr><th>2016 Fabrication de matières plastiques de base</th><td>8</td><td>.0</td><td>.0</td><td>37.1</td></tr>
+<tr><th>2020 Fabrication de pesticides et d'autres produits agrochimiques</th><td>7</td><td>.0</td><td>.0</td><td>37.1</td></tr>
+<tr><th>2030 Fabrication de peintures, vernis, encres et mastics</th><td>4</td><td>.0</td><td>.0</td><td>37.1</td></tr>
+<tr><th>2041 Fabrication de savons, détergents et produits d'entretien</th><td>8</td><td>.0</td><td>.0</td><td>37.2</td></tr>
+<tr><th>2053 Fabrication d'huiles essentielles</th><td>3</td><td>.0</td><td>.0</td><td>37.2</td></tr>
+<tr><th>2059 Fabrication d'autres produits chimiques n.c.a.</th><td>6</td><td>.0</td><td>.0</td><td>37.2</td></tr>
+<tr><th>2110 Fabrication de produits pharmaceutiques de base</th><td>16</td><td>.0</td><td>.1</td><td>37.3</td></tr>
+<tr><th>2120 Fabrication de préparations pharmaceutiques</th><td>6</td><td>.0</td><td>.0</td><td>37.3</td></tr>
+<tr><th>2211 Fabrication et rechapage de pneumatiques</th><td>1</td><td>.0</td><td>.0</td><td>37.3</td></tr>
+<tr><th>2221 Fabrication de plaques, feuilles, tubes et profilés en matières plastiques</th><td>3</td><td>.0</td><td>.0</td><td>37.3</td></tr>
+<tr><th>2222 Fabrication d'emballages en matières plastiques</th><td>1</td><td>.0</td><td>.0</td><td>37.3</td></tr>
+<tr><th>2223 Fabrication d'éléments en matières plastiques pour la construction</th><td>1</td><td>.0</td><td>.0</td><td>37.3</td></tr>
+<tr><th>2229 Fabrication d'autres articles en matières plastiques</th><td>15</td><td>.0</td><td>.1</td><td>37.4</td></tr>
+<tr><th>2311 Fabrication de verre plat</th><td>2</td><td>.0</td><td>.0</td><td>37.4</td></tr>
+<tr><th>2313 Fabrication de verre creux</th><td>1</td><td>.0</td><td>.0</td><td>37.4</td></tr>
+<tr><th>2319 Fabrication et façonnage d'autres articles en verre, y compris verre technique</th><td>1</td><td>.0</td><td>.0</td><td>37.4</td></tr>
+<tr><th>2331 Fabrication de carreaux en céramique</th><td>16</td><td>.0</td><td>.1</td><td>37.5</td></tr>
+<tr><th>2332 Fabrication de briques, tuiles et produits de construction en terre cuite</th><td>19</td><td>.0</td><td>.1</td><td>37.6</td></tr>
+<tr><th>2333 Fabrication de produits artisanaux à partir d'argile</th><td>3</td><td>.0</td><td>.0</td><td>37.6</td></tr>
+<tr><th>2341 Fabrication d'articles céramiques à usage domestique ou ornemental</th><td>2</td><td>.0</td><td>.0</td><td>37.6</td></tr>
+<tr><th>2342 Fabrication artisanale d'articles céramiques à usage domestique ou ornemental</th><td>1</td><td>.0</td><td>.0</td><td>37.6</td></tr>
+<tr><th>2343 Fabrication d'appareils sanitaires en céramique</th><td>5</td><td>.0</td><td>.0</td><td>37.6</td></tr>
+<tr><th>2351 Fabrication de ciment</th><td>10</td><td>.0</td><td>.0</td><td>37.6</td></tr>
+<tr><th>2352 Fabrication de chaux</th><td>2</td><td>.0</td><td>.0</td><td>37.7</td></tr>
+<tr><th>2361 Fabrication d'éléments en béton pour la construction</th><td>18</td><td>.0</td><td>.1</td><td>37.7</td></tr>
+<tr><th>2363 Fabrication de béton prêt à l'emploi</th><td>2</td><td>.0</td><td>.0</td><td>37.7</td></tr>
+<tr><th>2365 Fabrication d'ouvrages en fibre-ciment</th><td>1</td><td>.0</td><td>.0</td><td>37.7</td></tr>
+<tr><th>2369 Fabrication d'autres ouvrages en béton, en ciment ou en plâtre</th><td>5</td><td>.0</td><td>.0</td><td>37.8</td></tr>
+<tr><th>2370 Taille, façonnage et finissage de pierres</th><td>9</td><td>.0</td><td>.0</td><td>37.8</td></tr>
+<tr><th>2399 Fabrication d'autres produits minéraux non métalliques n.c.a.</th><td>2</td><td>.0</td><td>.0</td><td>37.8</td></tr>
+<tr><th>2410 Sidérurgie</th><td>32</td><td>.0</td><td>.1</td><td>37.9</td></tr>
+<tr><th>2420 Fabrication de tubes, tuyaux, profilés creux et accessoires correspondants en acier</th><td>9</td><td>.0</td><td>.0</td><td>38.0</td></tr>
+<tr><th>2433 Profilage à froid par formage ou pliage</th><td>3</td><td>.0</td><td>.0</td><td>38.0</td></tr>
+<tr><th>2441 Production de métaux précieux</th><td>1</td><td>.0</td><td>.0</td><td>38.0</td></tr>
+<tr><th>2442 Métallurgie de l'aluminium</th><td>10</td><td>.0</td><td>.0</td><td>38.0</td></tr>
+<tr><th>2444 Métallurgie du cuivre</th><td>2</td><td>.0</td><td>.0</td><td>38.0</td></tr>
+<tr><th>2511 Fabrication de structures métalliques et de parties de structures</th><td>10</td><td>.0</td><td>.0</td><td>38.1</td></tr>
+<tr><th>2512 Fabrication de portes et fenêtres en métal</th><td>147</td><td>.2</td><td>.6</td><td>38.7</td></tr>
+<tr><th>2522 Fabrication de récipients métalliques pour gaz comprimés ou liquéfiés</th><td>8</td><td>.0</td><td>.0</td><td>38.7</td></tr>
+<tr><th>2529 Fabrication d'autres réservoirs, citernes et conteneurs métalliques</th><td>3</td><td>.0</td><td>.0</td><td>38.8</td></tr>
+<tr><th>2550 Forge, emboutissage, estampage; métallurgie des poudres</th><td>19</td><td>.0</td><td>.1</td><td>38.8</td></tr>
+<tr><th>2561 Traitement et revêtement des métaux</th><td>1</td><td>.0</td><td>.0</td><td>38.8</td></tr>
+<tr><th>2562 Usinage</th><td>6</td><td>.0</td><td>.0</td><td>38.9</td></tr>
+<tr><th>2571 Fabrication de coutellerie</th><td>1</td><td>.0</td><td>.0</td><td>38.9</td></tr>
+<tr><th>2572 Fabrication de serrures et de ferrures</th><td>32</td><td>.0</td><td>.1</td><td>39.0</td></tr>
+<tr><th>2573 Fabrication d'outillage</th><td>5</td><td>.0</td><td>.0</td><td>39.0</td></tr>
+<tr><th>2591 Fabrication de fûts et emballages métalliques similaires</th><td>3</td><td>.0</td><td>.0</td><td>39.0</td></tr>
+<tr><th>2595 Fabrication artisanale d'ouvrages traditionnels en métaux</th><td>7</td><td>.0</td><td>.0</td><td>39.1</td></tr>
+<tr><th>2599 Fabrication d'autres produits métalliques n.c.a.</th><td>21</td><td>.0</td><td>.1</td><td>39.2</td></tr>
+<tr><th>2620 Fabrication d'ordinateurs et d'équipements périphériques</th><td>3</td><td>.0</td><td>.0</td><td>39.2</td></tr>
+<tr><th>2630 Fabrication d'équipements de communication</th><td>3</td><td>.0</td><td>.0</td><td>39.2</td></tr>
+<tr><th>2652 Horlogerie</th><td>1</td><td>.0</td><td>.0</td><td>39.2</td></tr>
+<tr><th>2670 Fabrication de matériels optique et photographique</th><td>2</td><td>.0</td><td>.0</td><td>39.2</td></tr>
+<tr><th>2712 Fabrication de matériel de distribution et de commande électrique</th><td>3</td><td>.0</td><td>.0</td><td>39.2</td></tr>
+<tr><th>2720 Fabrication de piles et d'accumulateurs électriques</th><td>4</td><td>.0</td><td>.0</td><td>39.2</td></tr>
+<tr><th>2731 Fabrication de câbles de fibres optiques</th><td>15</td><td>.0</td><td>.1</td><td>39.3</td></tr>
+<tr><th>2732 Fabrication d'autres fils et câbles électroniques ou électriques</th><td>108</td><td>.1</td><td>.5</td><td>39.7</td></tr>
+<tr><th>2733 Fabrication de matériel d'installation électrique</th><td>3</td><td>.0</td><td>.0</td><td>39.8</td></tr>
+<tr><th>2740 Fabrication d'appareils d'éclairage électrique</th><td>1</td><td>.0</td><td>.0</td><td>39.8</td></tr>
+<tr><th>2751 Fabrication d'appareils électroménagers</th><td>4</td><td>.0</td><td>.0</td><td>39.8</td></tr>
+<tr><th>2790 Fabrication d'autres matériels électriques</th><td>7</td><td>.0</td><td>.0</td><td>39.8</td></tr>
+<tr><th>2821 Fabrication de fours et brûleurs</th><td>3</td><td>.0</td><td>.0</td><td>39.8</td></tr>
+<tr><th>2825 Fabrication d'équipements aérauliques et frigorifiques industriels</th><td>2</td><td>.0</td><td>.0</td><td>39.8</td></tr>
+<tr><th>2841 Fabrication de machines de formage des métaux</th><td>4</td><td>.0</td><td>.0</td><td>39.8</td></tr>
+<tr><th>2895 Fabrication de machines pour les industries du papier et du carton</th><td>1</td><td>.0</td><td>.0</td><td>39.8</td></tr>
+<tr><th>2899 Fabrication d'autres machines d'usage spécifique n.c.a.</th><td>3</td><td>.0</td><td>.0</td><td>39.9</td></tr>
+<tr><th>2910 Construction de véhicules automobiles</th><td>12</td><td>.0</td><td>.1</td><td>39.9</td></tr>
+<tr><th>2920 Fabrication de carrosseries et remorques</th><td>11</td><td>.0</td><td>.0</td><td>40.0</td></tr>
+<tr><th>2931 Fabrication d'équipements électriques et électroniques automobiles</th><td>26</td><td>.0</td><td>.1</td><td>40.1</td></tr>
+<tr><th>2932 Fabrication d'autres équipements automobiles</th><td>25</td><td>.0</td><td>.1</td><td>40.2</td></tr>
+<tr><th>3030 Construction aéronautique et spatiale</th><td>3</td><td>.0</td><td>.0</td><td>40.2</td></tr>
+<tr><th>3091 Fabrication de motocycles</th><td>1</td><td>.0</td><td>.0</td><td>40.2</td></tr>
+<tr><th>3092 Fabrication de bicyclettes et de véhicules pour invalides</th><td>2</td><td>.0</td><td>.0</td><td>40.2</td></tr>
+<tr><th>3101 Fabrication de meubles de bureau et de magasin</th><td>4</td><td>.0</td><td>.0</td><td>40.2</td></tr>
+<tr><th>3102 Fabrication de meubles de cuisine</th><td>3</td><td>.0</td><td>.0</td><td>40.2</td></tr>
+<tr><th>3103 Fabrication de matelas</th><td>49</td><td>.1</td><td>.2</td><td>40.4</td></tr>
+<tr><th>3104 Industries connexes de l'ameublement</th><td>14</td><td>.0</td><td>.1</td><td>40.5</td></tr>
+<tr><th>3109 Fabrication d'autres meubles</th><td>33</td><td>.0</td><td>.1</td><td>40.6</td></tr>
+<tr><th>3212 Fabrication d'articles de joaillerie et bijouterie</th><td>2</td><td>.0</td><td>.0</td><td>40.6</td></tr>
+<tr><th>3213 Fabrication d'articles de bijouterie fantaisie et articles similaires</th><td>3</td><td>.0</td><td>.0</td><td>40.7</td></tr>
+<tr><th>3240 Fabrication de jeux et jouets</th><td>1</td><td>.0</td><td>.0</td><td>40.7</td></tr>
+<tr><th>3250 Fabrication d'instruments et de fournitures à usage médical et dentaire</th><td>6</td><td>.0</td><td>.0</td><td>40.7</td></tr>
+<tr><th>3291 Fabrication d'articles de brosserie</th><td>3</td><td>.0</td><td>.0</td><td>40.7</td></tr>
+<tr><th>3299 Autres activités manufacturières n.c.a.</th><td>8</td><td>.0</td><td>.0</td><td>40.7</td></tr>
+<tr><th>3311 Réparation d'ouvrages en métaux</th><td>4</td><td>.0</td><td>.0</td><td>40.7</td></tr>
+<tr><th>3312 Réparation de machines et équipements mécaniques</th><td>14</td><td>.0</td><td>.1</td><td>40.8</td></tr>
+<tr><th>3313 Réparation de matériels électroniques et optiques</th><td>15</td><td>.0</td><td>.1</td><td>40.9</td></tr>
+<tr><th>3314 Réparation d'équipements électriques</th><td>10</td><td>.0</td><td>.0</td><td>40.9</td></tr>
+<tr><th>3315 Réparation et maintenance navale</th><td>1</td><td>.0</td><td>.0</td><td>40.9</td></tr>
+<tr><th>3317 Réparation et maintenance d'autres équipements de transport</th><td>6</td><td>.0</td><td>.0</td><td>40.9</td></tr>
+<tr><th>3319 Réparation d'autres équipements</th><td>4</td><td>.0</td><td>.0</td><td>41.0</td></tr>
+<tr><th>3320 Installation de machines et d'équipements industriels</th><td>7</td><td>.0</td><td>.0</td><td>41.0</td></tr>
+<tr><th>3511 Production et transport d'électricité</th><td>22</td><td>.0</td><td>.1</td><td>41.1</td></tr>
+<tr><th>3512 Distribution et commerce d'électricité</th><td>24</td><td>.0</td><td>.1</td><td>41.2</td></tr>
+<tr><th>3520 Production et distribution de combustibles gazeux</th><td>18</td><td>.0</td><td>.1</td><td>41.3</td></tr>
+<tr><th>3530 Production et distribution de vapeur et d'air conditionné</th><td>2</td><td>.0</td><td>.0</td><td>41.3</td></tr>
+<tr><th>3600 Captage, traitement et distribution d'eau</th><td>22</td><td>.0</td><td>.1</td><td>41.4</td></tr>
+<tr><th>3700 Collecte et traitement des eaux usées</th><td>1</td><td>.0</td><td>.0</td><td>41.4</td></tr>
+<tr><th>3811 Collecte des déchets non dangereux</th><td>36</td><td>.0</td><td>.2</td><td>41.5</td></tr>
+<tr><th>3812 Collecte des déchets dangereux</th><td>4</td><td>.0</td><td>.0</td><td>41.5</td></tr>
+<tr><th>3821 Traitement et élimination des déchets non dangereux</th><td>4</td><td>.0</td><td>.0</td><td>41.5</td></tr>
+<tr><th>3831 Démantèlement d'épaves</th><td>2</td><td>.0</td><td>.0</td><td>41.6</td></tr>
+<tr><th>3900 Dépollution et autres services de gestion des déchets</th><td>4</td><td>.0</td><td>.0</td><td>41.6</td></tr>
+<tr><th>4110 Promotion immobilière</th><td>23</td><td>.0</td><td>.1</td><td>41.7</td></tr>
+<tr><th>4120 Construction de bâtiments résidentiels et non résidentiels</th><td>1447</td><td>1.7</td><td>6.1</td><td>47.8</td></tr>
+<tr><th>4211 Construction de routes et autoroutes</th><td>27</td><td>.0</td><td>.1</td><td>47.9</td></tr>
+<tr><th>4213 Construction de ponts et tunnels</th><td>1</td><td>.0</td><td>.0</td><td>47.9</td></tr>
+<tr><th>4221 Construction de réseaux pour fluides</th><td>6</td><td>.0</td><td>.0</td><td>47.9</td></tr>
+<tr><th>4222 Construction de réseaux électriques et de télécommunications</th><td>4</td><td>.0</td><td>.0</td><td>47.9</td></tr>
+<tr><th>4291 Construction d'ouvrages maritimes et fluviaux</th><td>4</td><td>.0</td><td>.0</td><td>47.9</td></tr>
+<tr><th>4299 Construction d'autres ouvrages de génie civil n.c.a.</th><td>14</td><td>.0</td><td>.1</td><td>48.0</td></tr>
+<tr><th>4311 Travaux de démolition</th><td>9</td><td>.0</td><td>.0</td><td>48.0</td></tr>
+<tr><th>4312 Travaux de préparation des sites</th><td>10</td><td>.0</td><td>.0</td><td>48.1</td></tr>
+<tr><th>4313 Forages et sondages</th><td>22</td><td>.0</td><td>.1</td><td>48.2</td></tr>
+<tr><th>4321 Installation électrique</th><td>165</td><td>.2</td><td>.7</td><td>48.9</td></tr>
+<tr><th>4322 Travaux de plomberie et installation de chauffage et de conditionnement d'air</th><td>57</td><td>.1</td><td>.2</td><td>49.1</td></tr>
+<tr><th>4329 Autres travaux d'installation</th><td>19</td><td>.0</td><td>.1</td><td>49.2</td></tr>
+<tr><th>4331 Travaux de plâtrerie</th><td>141</td><td>.2</td><td>.6</td><td>49.8</td></tr>
+<tr><th>4332 Travaux de menuiserie</th><td>183</td><td>.2</td><td>.8</td><td>50.6</td></tr>
+<tr><th>4333 Travaux de revêtement des sols et des murs</th><td>141</td><td>.2</td><td>.6</td><td>51.1</td></tr>
+<tr><th>4334 Miroiterie de bâtiment, vitrerie</th><td>1</td><td>.0</td><td>.0</td><td>51.2</td></tr>
+<tr><th>4335 Travaux de peinture</th><td>274</td><td>.3</td><td>1.2</td><td>52.3</td></tr>
+<tr><th>4339 Autres travaux de finition</th><td>38</td><td>.0</td><td>.2</td><td>52.5</td></tr>
+<tr><th>4391 Travaux de couverture</th><td>6</td><td>.0</td><td>.0</td><td>52.5</td></tr>
+<tr><th>4399 Autres travaux de construction spécialisés n.c.a.</th><td>27</td><td>.0</td><td>.1</td><td>52.6</td></tr>
+<tr><th>4511 Commerce de voitures et de véhicules automobiles légers</th><td>22</td><td>.0</td><td>.1</td><td>52.7</td></tr>
+<tr><th>4519 Commerce d'autres véhicules automobiles</th><td>2</td><td>.0</td><td>.0</td><td>52.7</td></tr>
+<tr><th>4520 Entretien et réparation de véhicules automobiles</th><td>313</td><td>.4</td><td>1.3</td><td>54.0</td></tr>
+<tr><th>4531 Commerce de gros d'équipements automobiles</th><td>2</td><td>.0</td><td>.0</td><td>54.0</td></tr>
+<tr><th>4532 Commerce de détail d'équipements automobiles</th><td>51</td><td>.1</td><td>.2</td><td>54.2</td></tr>
+<tr><th>4541 Commerce de motocycles</th><td>8</td><td>.0</td><td>.0</td><td>54.3</td></tr>
+<tr><th>4542 Réparation de motocycles</th><td>65</td><td>.1</td><td>.3</td><td>54.6</td></tr>
+<tr><th>4612 Intermédiaires du commerce en combustibles, métaux, minéraux et produits chimiques</th><td>11</td><td>.0</td><td>.0</td><td>54.6</td></tr>
+<tr><th>4613 Intermédiaires du commerce en bois et matériaux de construction</th><td>2</td><td>.0</td><td>.0</td><td>54.6</td></tr>
+<tr><th>4616 Intermédiaires du commerce en textiles, habillement, fourrures, chaussures et articles en cuir</th><td>9</td><td>.0</td><td>.0</td><td>54.6</td></tr>
+<tr><th>4617 Intermédiaires du commerce en denrées, boissons et tabac</th><td>3</td><td>.0</td><td>.0</td><td>54.7</td></tr>
+<tr><th>4618 Intermédiaires spécialisés dans le commerce d'autres produits spécifiques</th><td>1</td><td>.0</td><td>.0</td><td>54.7</td></tr>
+<tr><th>4619 Intermédiaires du commerce en produits divers</th><td>6</td><td>.0</td><td>.0</td><td>54.7</td></tr>
+<tr><th>4621 Commerce de gros de céréales et aliments pour le bétail</th><td>11</td><td>.0</td><td>.0</td><td>54.7</td></tr>
+<tr><th>4624 Commerce de gros d'animaux vivants</th><td>15</td><td>.0</td><td>.1</td><td>54.8</td></tr>
+<tr><th>4631 Commerce de gros de fruits et légumes</th><td>51</td><td>.1</td><td>.2</td><td>55.0</td></tr>
+<tr><th>4632 Commerce de gros de viandes et de produits à base de viande</th><td>7</td><td>.0</td><td>.0</td><td>55.0</td></tr>
+<tr><th>4633 Commerce de gros de produits laitiers, œufs, huiles et matières grasses comestibles</th><td>6</td><td>.0</td><td>.0</td><td>55.1</td></tr>
+<tr><th>4634 Commerce de gros de boissons</th><td>1</td><td>.0</td><td>.0</td><td>55.1</td></tr>
+<tr><th>4635 Commerce de gros de produits à base de tabac</th><td>3</td><td>.0</td><td>.0</td><td>55.1</td></tr>
+<tr><th>4636 Commerce de gros de sucre, cacao, chocolat, confiserie, café, thé et épices</th><td>7</td><td>.0</td><td>.0</td><td>55.1</td></tr>
+<tr><th>4637 Commerce de gros de poissons, crustacés et mollusques</th><td>10</td><td>.0</td><td>.0</td><td>55.2</td></tr>
+<tr><th>4638 Commerce de gros d'autres produits alimentaires</th><td>20</td><td>.0</td><td>.1</td><td>55.2</td></tr>
+<tr><th>4639 Commerce de gros non spécialisé de denrées</th><td>4</td><td>.0</td><td>.0</td><td>55.3</td></tr>
+<tr><th>4641 Commerce de gros de textiles</th><td>5</td><td>.0</td><td>.0</td><td>55.3</td></tr>
+<tr><th>4642 Commerce de gros d'habillement et de chaussures</th><td>12</td><td>.0</td><td>.1</td><td>55.3</td></tr>
+<tr><th>4643 Commerce de gros d'appareils électroménagers</th><td>3</td><td>.0</td><td>.0</td><td>55.3</td></tr>
+<tr><th>4644 Commerce de gros de vaisselle, verrerie et produits d'entretien</th><td>6</td><td>.0</td><td>.0</td><td>55.4</td></tr>
+<tr><th>4646 Commerce de gros de produits pharmaceutiques</th><td>7</td><td>.0</td><td>.0</td><td>55.4</td></tr>
+<tr><th>4647 Commerce de gros de meubles, de tapis et d'appareils d'éclairage</th><td>5</td><td>.0</td><td>.0</td><td>55.4</td></tr>
+<tr><th>4651 Commerce de gros d'ordinateurs, d'équipements informatiques périphériques et de logiciels</th><td>8</td><td>.0</td><td>.0</td><td>55.5</td></tr>
+<tr><th>4652 Commerce de gros de composants et d'équipements électroniques et de télécommunication</th><td>8</td><td>.0</td><td>.0</td><td>55.5</td></tr>
+<tr><th>4661 Commerce de gros de matériel agricole</th><td>8</td><td>.0</td><td>.0</td><td>55.5</td></tr>
+<tr><th>4663 Commerce de gros de machines pour l'extraction, la construction et le génie civil</th><td>1</td><td>.0</td><td>.0</td><td>55.5</td></tr>
+<tr><th>4664 Commerce de gros de machines pour l'industrie textile et l'habillement</th><td>4</td><td>.0</td><td>.0</td><td>55.5</td></tr>
+<tr><th>4665 Commerce de gros de mobilier de bureau</th><td>2</td><td>.0</td><td>.0</td><td>55.5</td></tr>
+<tr><th>4666 Commerce de gros d'autres machines et équipements de bureau</th><td>4</td><td>.0</td><td>.0</td><td>55.6</td></tr>
+<tr><th>4669 Commerce de gros d'autres machines et équipements</th><td>3</td><td>.0</td><td>.0</td><td>55.6</td></tr>
+<tr><th>4671 Commerce de gros de combustibles et de produits annexes</th><td>13</td><td>.0</td><td>.1</td><td>55.6</td></tr>
+<tr><th>4672 Commerce de gros de minerais et métaux</th><td>2</td><td>.0</td><td>.0</td><td>55.6</td></tr>
+<tr><th>4673 Commerce de gros de bois et de produits dérivés</th><td>10</td><td>.0</td><td>.0</td><td>55.7</td></tr>
+<tr><th>4674 Commerce de gros de matériaux de construction et d'appareils sanitaires</th><td>35</td><td>.0</td><td>.1</td><td>55.8</td></tr>
+<tr><th>4675 Commerce de gros de quincaillerie et fournitures pour plomberie et chauffage</th><td>5</td><td>.0</td><td>.0</td><td>55.9</td></tr>
+<tr><th>4677 Commerce de gros d'autres produits intermédiaires</th><td>3</td><td>.0</td><td>.0</td><td>55.9</td></tr>
+<tr><th>4690 Commerce de gros non spécialisé</th><td>13</td><td>.0</td><td>.1</td><td>55.9</td></tr>
+<tr><th>4711 Commerce d'alimentation générale</th><td>456</td><td>.6</td><td>1.9</td><td>57.8</td></tr>
+<tr><th>4712 Superettes</th><td>14</td><td>.0</td><td>.1</td><td>57.9</td></tr>
+<tr><th>4713 Supermarchés</th><td>13</td><td>.0</td><td>.1</td><td>58.0</td></tr>
+<tr><th>4714 Hypermarchés</th><td>50</td><td>.1</td><td>.2</td><td>58.2</td></tr>
+<tr><th>4715 Autre commerce de détail en magasin non spécialisé à prédominance alimentaire</th><td>73</td><td>.1</td><td>.3</td><td>58.5</td></tr>
+<tr><th>4716 Autre commerce de détail en magasin en produits divers de l'artisanat</th><td>10</td><td>.0</td><td>.0</td><td>58.5</td></tr>
+<tr><th>4719 Autre commerce de détail en magasin non spécialisé sans prédominance alimentaire</th><td>13</td><td>.0</td><td>.1</td><td>58.6</td></tr>
+<tr><th>4721 Commerce de détail de fruits et légumes en magasin spécialisé</th><td>95</td><td>.1</td><td>.4</td><td>59.0</td></tr>
+<tr><th>4722 Commerce de détail de viandes et de produits à base de viande en magasin spécialisé</th><td>145</td><td>.2</td><td>.6</td><td>59.6</td></tr>
+<tr><th>4723 Commerce de détail de poissons, crustacés et mollusques en magasin spécialisé</th><td>32</td><td>.0</td><td>.1</td><td>59.7</td></tr>
+<tr><th>4724 Commerce de détail de pain, pâtisserie et confiserie en magasin spécialisé</th><td>54</td><td>.1</td><td>.2</td><td>59.9</td></tr>
+<tr><th>4725 Commerce de détail de boissons en magasin spécialisé</th><td>12</td><td>.0</td><td>.1</td><td>60.0</td></tr>
+<tr><th>4726 Commerce de détail de produits à base de tabac en magasin spécialisé</th><td>2</td><td>.0</td><td>.0</td><td>60.0</td></tr>
+<tr><th>4729 Autres commerces de détail alimentaires en magasin spécialisé</th><td>205</td><td>.2</td><td>.9</td><td>60.9</td></tr>
+<tr><th>4730 Commerce de détail de carburants en magasin spécialisé</th><td>25</td><td>.0</td><td>.1</td><td>61.0</td></tr>
+<tr><th>4741 Commerce de détail d'ordinateurs, d'unités périphériques et de logiciels en magasin spécialisé</th><td>12</td><td>.0</td><td>.1</td><td>61.0</td></tr>
+<tr><th>4742 Commerce de détail de matériels de télécommunication en magasin spécialisé</th><td>33</td><td>.0</td><td>.1</td><td>61.2</td></tr>
+<tr><th>4743 Commerce de détail de matériels audio/vidéo en magasin spécialisé</th><td>9</td><td>.0</td><td>.0</td><td>61.2</td></tr>
+<tr><th>4751 Commerce de détail de textiles en magasin spécialisé</th><td>11</td><td>.0</td><td>.0</td><td>61.2</td></tr>
+<tr><th>4752 Commerce de détail de quincaillerie, peintures et verres en magasin spécialisé</th><td>92</td><td>.1</td><td>.4</td><td>61.6</td></tr>
+<tr><th>4753 Commerce de détail de tapis, moquettes et revêtements de murs et de sols en magasin spécialisé</th><td>11</td><td>.0</td><td>.0</td><td>61.7</td></tr>
+<tr><th>4754 Commerce de détail d'appareils électroménagers en magasin spécialisé</th><td>29</td><td>.0</td><td>.1</td><td>61.8</td></tr>
+<tr><th>4759 Commerce de détail de meubles, appareils d'éclairage et autres articles de ménage en magasin spécialisé</th><td>61</td><td>.1</td><td>.3</td><td>62.1</td></tr>
+<tr><th>4761 Commerce de détail de livres en magasin spécialisé</th><td>19</td><td>.0</td><td>.1</td><td>62.1</td></tr>
+<tr><th>4762 Commerce de détail de journaux et papeterie en magasin spécialisé</th><td>3</td><td>.0</td><td>.0</td><td>62.1</td></tr>
+<tr><th>4764 Commerce de détail d'articles de sport en magasin spécialisé</th><td>3</td><td>.0</td><td>.0</td><td>62.2</td></tr>
+<tr><th>4765 Commerce de détail d'articles de jeux et jouets en magasin spécialisé</th><td>9</td><td>.0</td><td>.0</td><td>62.2</td></tr>
+<tr><th>4771 Commerce de détail d'habillement en magasin spécialisé</th><td>178</td><td>.2</td><td>.7</td><td>62.9</td></tr>
+<tr><th>4772 Commerce de détail de chaussures et d'articles en cuir en magasin spécialisé</th><td>38</td><td>.0</td><td>.2</td><td>63.1</td></tr>
+<tr><th>4773 Commerce de détail de produits pharmaceutiques en magasin spécialisé</th><td>29</td><td>.0</td><td>.1</td><td>63.2</td></tr>
+<tr><th>4774 Commerce de détail d'articles médicaux et orthopédiques en magasin spécialisé</th><td>15</td><td>.0</td><td>.1</td><td>63.3</td></tr>
+<tr><th>4775 Commerce de détail de parfumerie et de produits de beauté en magasin spécialisé</th><td>41</td><td>.0</td><td>.2</td><td>63.5</td></tr>
+<tr><th>4776 Commerce de détail d'optique et de photographie</th><td>9</td><td>.0</td><td>.0</td><td>63.5</td></tr>
+<tr><th>4777 Commerce de détail d'articles d'horlogerie et de bijouterie en magasin spécialisé</th><td>14</td><td>.0</td><td>.1</td><td>63.6</td></tr>
+<tr><th>4778 Autre commerce de détail de biens neufs en magasin spécialisé</th><td>70</td><td>.1</td><td>.3</td><td>63.9</td></tr>
+<tr><th>4779 Commerce de détail de biens d'occasion en magasin</th><td>30</td><td>.0</td><td>.1</td><td>64.0</td></tr>
+<tr><th>4781 Commerce de détail alimentaire sur éventaires et marchés</th><td>405</td><td>.5</td><td>1.7</td><td>65.7</td></tr>
+<tr><th>4782 Commerce de détail de textiles, d'habillement et de chaussures sur éventaires et marchés</th><td>105</td><td>.1</td><td>.4</td><td>66.1</td></tr>
+<tr><th>4789 Autres commerces de détail sur éventaires et marchés</th><td>213</td><td>.3</td><td>.9</td><td>67.0</td></tr>
+<tr><th>4791 Vente par correspondance</th><td>1</td><td>.0</td><td>.0</td><td>67.0</td></tr>
+<tr><th>4792 Vente par Internet</th><td>29</td><td>.0</td><td>.1</td><td>67.2</td></tr>
+<tr><th>4799 Autres commerces de détail hors magasin, éventaires ou marchés</th><td>597</td><td>.7</td><td>2.5</td><td>69.7</td></tr>
+<tr><th>4910 Transport ferroviaire interurbain de voyageurs</th><td>11</td><td>.0</td><td>.0</td><td>69.7</td></tr>
+<tr><th>4920 Transports ferroviaires de fret</th><td>1</td><td>.0</td><td>.0</td><td>69.7</td></tr>
+<tr><th>4931 Transports urbains et suburbains de voyageurs</th><td>172</td><td>.2</td><td>.7</td><td>70.4</td></tr>
+<tr><th>4932 Transports de voyageurs par taxis</th><td>335</td><td>.4</td><td>1.4</td><td>71.9</td></tr>
+<tr><th>4939 Autres transports terrestres de voyageurs n.c.a.</th><td>54</td><td>.1</td><td>.2</td><td>72.1</td></tr>
+<tr><th>4941 Transports routiers de fret</th><td>368</td><td>.4</td><td>1.6</td><td>73.6</td></tr>
+<tr><th>4942 Services de déménagement</th><td>15</td><td>.0</td><td>.1</td><td>73.7</td></tr>
+<tr><th>5010 Transports maritimes et côtiers de passagers</th><td>1</td><td>.0</td><td>.0</td><td>73.7</td></tr>
+<tr><th>5020 Transports maritimes et côtiers de fret</th><td>30</td><td>.0</td><td>.1</td><td>73.8</td></tr>
+<tr><th>5030 Transports fluviaux de passagers</th><td>3</td><td>.0</td><td>.0</td><td>73.8</td></tr>
+<tr><th>5110 Transports aériens de passagers</th><td>19</td><td>.0</td><td>.1</td><td>73.9</td></tr>
+<tr><th>5212 Entreposage et stockage non frigorifique</th><td>7</td><td>.0</td><td>.0</td><td>74.0</td></tr>
+<tr><th>5221 Services auxiliaires des transports terrestres</th><td>85</td><td>.1</td><td>.4</td><td>74.3</td></tr>
+<tr><th>5222 Services auxiliaires des transports par eau</th><td>10</td><td>.0</td><td>.0</td><td>74.4</td></tr>
+<tr><th>5223 Services auxiliaires des transports aériens</th><td>11</td><td>.0</td><td>.0</td><td>74.4</td></tr>
+<tr><th>5224 Manutention</th><td>65</td><td>.1</td><td>.3</td><td>74.7</td></tr>
+<tr><th>5229 Autres services auxiliaires des transports</th><td>36</td><td>.0</td><td>.2</td><td>74.8</td></tr>
+<tr><th>5310 Activités de poste dans le cadre d'une obligation de service universel</th><td>5</td><td>.0</td><td>.0</td><td>74.8</td></tr>
+<tr><th>5320 Autres activités de poste et de courrier</th><td>7</td><td>.0</td><td>.0</td><td>74.9</td></tr>
+<tr><th>5510 Hôtels et hébergement similaire</th><td>167</td><td>.2</td><td>.7</td><td>75.6</td></tr>
+<tr><th>5520 Hébergement touristique et autre hébergement de courte durée</th><td>15</td><td>.0</td><td>.1</td><td>75.6</td></tr>
+<tr><th>5530 Terrains de camping et parcs pour caravanes ou véhicules de loisirs</th><td>2</td><td>.0</td><td>.0</td><td>75.7</td></tr>
+<tr><th>5590 Autres hébergements</th><td>5</td><td>.0</td><td>.0</td><td>75.7</td></tr>
+<tr><th>5610 Restaurants et services de restauration mobile</th><td>163</td><td>.2</td><td>.7</td><td>76.4</td></tr>
+<tr><th>5621 Services des traiteurs</th><td>75</td><td>.1</td><td>.3</td><td>76.7</td></tr>
+<tr><th>5629 Autres services de restauration</th><td>109</td><td>.1</td><td>.5</td><td>77.1</td></tr>
+<tr><th>5631 Cafés</th><td>490</td><td>.6</td><td>2.1</td><td>79.2</td></tr>
+<tr><th>5632 Débits de boissons alcoolisées</th><td>14</td><td>.0</td><td>.1</td><td>79.3</td></tr>
+<tr><th>5813 Édition de journaux</th><td>2</td><td>.0</td><td>.0</td><td>79.3</td></tr>
+<tr><th>5814 Édition de revues et périodiques</th><td>1</td><td>.0</td><td>.0</td><td>79.3</td></tr>
+<tr><th>5829 Édition d'autres logiciels</th><td>1</td><td>.0</td><td>.0</td><td>79.3</td></tr>
+<tr><th>5911 Production de films cinématographiques, de vidéo et de programmes de télévision</th><td>1</td><td>.0</td><td>.0</td><td>79.3</td></tr>
+<tr><th>5920 Enregistrement sonore et édition musicale</th><td>1</td><td>.0</td><td>.0</td><td>79.3</td></tr>
+<tr><th>6010 Édition et diffusion de programmes radio</th><td>6</td><td>.0</td><td>.0</td><td>79.3</td></tr>
+<tr><th>6020 Programmation de télévision et télédiffusion</th><td>1</td><td>.0</td><td>.0</td><td>79.3</td></tr>
+<tr><th>6110 Télécommunications filaires</th><td>12</td><td>.0</td><td>.1</td><td>79.4</td></tr>
+<tr><th>6120 Télécommunications sans fil</th><td>10</td><td>.0</td><td>.0</td><td>79.4</td></tr>
+<tr><th>6130 Télécommunications par satellite</th><td>2</td><td>.0</td><td>.0</td><td>79.4</td></tr>
+<tr><th>6190 Autres activités de télécommunication</th><td>26</td><td>.0</td><td>.1</td><td>79.5</td></tr>
+<tr><th>6201 Programmation informatique</th><td>13</td><td>.0</td><td>.1</td><td>79.6</td></tr>
+<tr><th>6202 Conseil informatique</th><td>1</td><td>.0</td><td>.0</td><td>79.6</td></tr>
+<tr><th>6203 Gestion d'installations informatiques</th><td>13</td><td>.0</td><td>.1</td><td>79.6</td></tr>
+<tr><th>6209 Autres activités informatiques</th><td>6</td><td>.0</td><td>.0</td><td>79.7</td></tr>
+<tr><th>6311 Traitement de données, hébergement et activités connexes</th><td>4</td><td>.0</td><td>.0</td><td>79.7</td></tr>
+<tr><th>6312 Portails Internet</th><td>3</td><td>.0</td><td>.0</td><td>79.7</td></tr>
+<tr><th>6399 Autres services d'information n.c.a.</th><td>11</td><td>.0</td><td>.0</td><td>79.7</td></tr>
+<tr><th>6411 Activités de banque centrale</th><td>1</td><td>.0</td><td>.0</td><td>79.7</td></tr>
+<tr><th>6419 Autres intermédiations monétaires</th><td>56</td><td>.1</td><td>.2</td><td>80.0</td></tr>
+<tr><th>6420 Activités des sociétés holding</th><td>8</td><td>.0</td><td>.0</td><td>80.0</td></tr>
+<tr><th>6430 Fonds de placement et entités financières similaires</th><td>8</td><td>.0</td><td>.0</td><td>80.0</td></tr>
+<tr><th>6492 Autre distribution de crédit</th><td>3</td><td>.0</td><td>.0</td><td>80.1</td></tr>
+<tr><th>6499 Autres activités des services financiers, hors assurance et caisses de retraite, n.c.a.</th><td>9</td><td>.0</td><td>.0</td><td>80.1</td></tr>
+<tr><th>6511 Assurance vie</th><td>10</td><td>.0</td><td>.0</td><td>80.1</td></tr>
+<tr><th>6512 Autres assurances</th><td>25</td><td>.0</td><td>.1</td><td>80.2</td></tr>
+<tr><th>6520 Réassurance</th><td>2</td><td>.0</td><td>.0</td><td>80.3</td></tr>
+<tr><th>6530 Caisses de retraite</th><td>2</td><td>.0</td><td>.0</td><td>80.3</td></tr>
+<tr><th>6611 Administration de marchés financiers</th><td>6</td><td>.0</td><td>.0</td><td>80.3</td></tr>
+<tr><th>6619 Autres activités auxiliaires de services financiers, hors assurance et caisses de retraite</th><td>3</td><td>.0</td><td>.0</td><td>80.3</td></tr>
+<tr><th>6622 Activités des agents et courtiers d'assurances</th><td>5</td><td>.0</td><td>.0</td><td>80.3</td></tr>
+<tr><th>6810 Activités des marchands de biens immobiliers</th><td>3</td><td>.0</td><td>.0</td><td>80.3</td></tr>
+<tr><th>6821 Location et exploitation de biens immobiliers résidentiels propres ou loués</th><td>11</td><td>.0</td><td>.0</td><td>80.4</td></tr>
+<tr><th>6829 Location et exploitation d'autres biens immobiliers propres ou loués</th><td>9</td><td>.0</td><td>.0</td><td>80.4</td></tr>
+<tr><th>6831 Agences immobilières</th><td>22</td><td>.0</td><td>.1</td><td>80.5</td></tr>
+<tr><th>6832 Administration de biens immobiliers</th><td>4</td><td>.0</td><td>.0</td><td>80.5</td></tr>
+<tr><th>6910 Activités juridiques</th><td>43</td><td>.1</td><td>.2</td><td>80.7</td></tr>
+<tr><th>6920 Activités comptables</th><td>36</td><td>.0</td><td>.2</td><td>80.9</td></tr>
+<tr><th>7022 Conseil pour les affaires et autres conseils de gestion</th><td>2</td><td>.0</td><td>.0</td><td>80.9</td></tr>
+<tr><th>7111 Activités d'architecture</th><td>20</td><td>.0</td><td>.1</td><td>81.0</td></tr>
+<tr><th>7112 Activités d'ingénierie</th><td>1</td><td>.0</td><td>.0</td><td>81.0</td></tr>
+<tr><th>7120 Activités de contrôle et analyses techniques</th><td>5</td><td>.0</td><td>.0</td><td>81.0</td></tr>
+<tr><th>7311 Activités des agences de publicité</th><td>13</td><td>.0</td><td>.1</td><td>81.0</td></tr>
+<tr><th>7312 Régie publicitaire de médias</th><td>2</td><td>.0</td><td>.0</td><td>81.0</td></tr>
+<tr><th>7320 Études de marché et sondages</th><td>7</td><td>.0</td><td>.0</td><td>81.1</td></tr>
+<tr><th>7410 Activités spécialisées de design</th><td>3</td><td>.0</td><td>.0</td><td>81.1</td></tr>
+<tr><th>7420 Activités photographiques</th><td>11</td><td>.0</td><td>.0</td><td>81.1</td></tr>
+<tr><th>7490 Autres activités spécialisées, scientifiques et techniques n.c.a.</th><td>5</td><td>.0</td><td>.0</td><td>81.1</td></tr>
+<tr><th>7500 Activités vétérinaires</th><td>8</td><td>.0</td><td>.0</td><td>81.2</td></tr>
+<tr><th>7711 Location et location-bail de voitures et de véhicules automobiles légers</th><td>15</td><td>.0</td><td>.1</td><td>81.2</td></tr>
+<tr><th>7712 Location et location-bail de camions</th><td>3</td><td>.0</td><td>.0</td><td>81.3</td></tr>
+<tr><th>7721 Location et location-bail d'articles de loisirs et de sport</th><td>3</td><td>.0</td><td>.0</td><td>81.3</td></tr>
+<tr><th>7729 Location et location-bail d'autres biens personnels et domestiques</th><td>2</td><td>.0</td><td>.0</td><td>81.3</td></tr>
+<tr><th>7731 Location et location-bail de machines et équipements agricoles</th><td>1</td><td>.0</td><td>.0</td><td>81.3</td></tr>
+<tr><th>7732 Location et location-bail de machines et équipements pour la construction</th><td>8</td><td>.0</td><td>.0</td><td>81.3</td></tr>
+<tr><th>7739 Location et location-bail d'autres machines, équipements et biens matériels n.c.a.</th><td>3</td><td>.0</td><td>.0</td><td>81.3</td></tr>
+<tr><th>7740 Location-bail de propriété intellectuelle et de produits similaires, à l'exception des œuvres soumises à copyright</th><td>1</td><td>.0</td><td>.0</td><td>81.3</td></tr>
+<tr><th>7810 Activités des agences de placement de main-d'œuvre</th><td>23</td><td>.0</td><td>.1</td><td>81.4</td></tr>
+<tr><th>7820 Activités des agences de travail temporaire</th><td>22</td><td>.0</td><td>.1</td><td>81.5</td></tr>
+<tr><th>7830 Autre mise à disposition de ressources humaines</th><td>6</td><td>.0</td><td>.0</td><td>81.5</td></tr>
+<tr><th>7911 Activités des agences de voyage</th><td>6</td><td>.0</td><td>.0</td><td>81.6</td></tr>
+<tr><th>7912 Activités des voyagistes</th><td>10</td><td>.0</td><td>.0</td><td>81.6</td></tr>
+<tr><th>7990 Autres services de réservation et activités connexes</th><td>2</td><td>.0</td><td>.0</td><td>81.6</td></tr>
+<tr><th>8010 Activités de sécurité privée</th><td>289</td><td>.3</td><td>1.2</td><td>82.8</td></tr>
+<tr><th>8020 Activités liées aux systèmes de sécurité</th><td>26</td><td>.0</td><td>.1</td><td>83.0</td></tr>
+<tr><th>8030 Activités d'enquête</th><td>4</td><td>.0</td><td>.0</td><td>83.0</td></tr>
+<tr><th>8110 Activités combinées de soutien lié aux bâtiments</th><td>9</td><td>.0</td><td>.0</td><td>83.0</td></tr>
+<tr><th>8121 Nettoyage courant des bâtiments</th><td>61</td><td>.1</td><td>.3</td><td>83.3</td></tr>
+<tr><th>8122 Autres activités de nettoyage des bâtiments et nettoyage industriel</th><td>23</td><td>.0</td><td>.1</td><td>83.4</td></tr>
+<tr><th>8129 Autres activités de nettoyage</th><td>112</td><td>.1</td><td>.5</td><td>83.8</td></tr>
+<tr><th>8130 Services d'aménagement paysager</th><td>48</td><td>.1</td><td>.2</td><td>84.0</td></tr>
+<tr><th>8211 Services administratifs combinés de bureau</th><td>26</td><td>.0</td><td>.1</td><td>84.1</td></tr>
+<tr><th>8219 Photocopie, préparation de documents et autres activités spécialisées de soutien de bureau</th><td>6</td><td>.0</td><td>.0</td><td>84.2</td></tr>
+<tr><th>8220 Activités de centres d'appels</th><td>86</td><td>.1</td><td>.4</td><td>84.5</td></tr>
+<tr><th>8291 Activités des agences de recouvrement de factures et des sociétés d'information financière sur la clientèle</th><td>11</td><td>.0</td><td>.0</td><td>84.6</td></tr>
+<tr><th>8292 Activités de conditionnement</th><td>1</td><td>.0</td><td>.0</td><td>84.6</td></tr>
+<tr><th>8299 Autres activités de soutien aux entreprises n.c.a.</th><td>9</td><td>.0</td><td>.0</td><td>84.6</td></tr>
+<tr><th>8411 Administration publique générale</th><td>353</td><td>.4</td><td>1.5</td><td>86.1</td></tr>
+<tr><th>8412 Admin. publique (tutelle) de la santé, de la formation, de la culture, des services sociaux (hors sécurité sociale)</th><td>357</td><td>.4</td><td>1.5</td><td>87.6</td></tr>
+<tr><th>8413 Administration publique (tutelle) des activités économiques</th><td>49</td><td>.1</td><td>.2</td><td>87.8</td></tr>
+<tr><th>8421 Affaires étrangères</th><td>17</td><td>.0</td><td>.1</td><td>87.9</td></tr>
+<tr><th>8422 Défense</th><td>169</td><td>.2</td><td>.7</td><td>88.6</td></tr>
+<tr><th>8423 Justice</th><td>35</td><td>.0</td><td>.1</td><td>88.7</td></tr>
+<tr><th>8424 Activités d'ordre public et de sécurité</th><td>119</td><td>.1</td><td>.5</td><td>89.2</td></tr>
+<tr><th>8425 Protection civile</th><td>19</td><td>.0</td><td>.1</td><td>89.3</td></tr>
+<tr><th>8430 Sécurité sociale obligatoire</th><td>3</td><td>.0</td><td>.0</td><td>89.3</td></tr>
+<tr><th>8511 Enseignement coranique</th><td>4</td><td>.0</td><td>.0</td><td>89.4</td></tr>
+<tr><th>8512 Enseignement pré-primaire</th><td>126</td><td>.2</td><td>.5</td><td>89.9</td></tr>
+<tr><th>8520 Enseignement primaire</th><td>380</td><td>.5</td><td>1.6</td><td>91.5</td></tr>
+<tr><th>8531 Enseignement secondaire collégial général</th><td>155</td><td>.2</td><td>.7</td><td>92.1</td></tr>
+<tr><th>8532 Enseignement secondaire qualifiant général</th><td>115</td><td>.1</td><td>.5</td><td>92.6</td></tr>
+<tr><th>8541 Enseignement post-Bac non supérieur (CPGE et BTS)</th><td>5</td><td>.0</td><td>.0</td><td>92.6</td></tr>
+<tr><th>8542 Enseignement supérieur</th><td>43</td><td>.1</td><td>.2</td><td>92.8</td></tr>
+<tr><th>8551 Enseignement de disciplines sportives et d'activités de loisirs</th><td>2</td><td>.0</td><td>.0</td><td>92.8</td></tr>
+<tr><th>8552 Enseignement culturel</th><td>4</td><td>.0</td><td>.0</td><td>92.9</td></tr>
+<tr><th>8553 Enseignement de la conduite</th><td>10</td><td>.0</td><td>.0</td><td>92.9</td></tr>
+<tr><th>8559 Enseignements divers</th><td>15</td><td>.0</td><td>.1</td><td>93.0</td></tr>
+<tr><th>8560 Activités de soutien à l'enseignement</th><td>27</td><td>.0</td><td>.1</td><td>93.1</td></tr>
+<tr><th>8610 Activités hospitalières</th><td>91</td><td>.1</td><td>.4</td><td>93.5</td></tr>
+<tr><th>8621 Activité des médecins généralistes</th><td>10</td><td>.0</td><td>.0</td><td>93.5</td></tr>
+<tr><th>8622 Activité des médecins spécialistes</th><td>30</td><td>.0</td><td>.1</td><td>93.6</td></tr>
+<tr><th>8623 Pratique dentaire</th><td>17</td><td>.0</td><td>.1</td><td>93.7</td></tr>
+<tr><th>8691 Laboratoires d'analyses médicales</th><td>8</td><td>.0</td><td>.0</td><td>93.7</td></tr>
+<tr><th>8694 Soins hors d'un cadre réglementé</th><td>4</td><td>.0</td><td>.0</td><td>93.7</td></tr>
+<tr><th>8699 Autres activités pour la santé humaine</th><td>31</td><td>.0</td><td>.1</td><td>93.9</td></tr>
+<tr><th>8710 Hébergement médicalisé</th><td>28</td><td>.0</td><td>.1</td><td>94.0</td></tr>
+<tr><th>8720 Hébergement social pour personnes handicapées mentales, malades mentales et toxicomanes</th><td>1</td><td>.0</td><td>.0</td><td>94.0</td></tr>
+<tr><th>8730 Hébergement social pour personnes âgées ou handicapées physiques</th><td>4</td><td>.0</td><td>.0</td><td>94.0</td></tr>
+<tr><th>8790 Autres activités d'hébergement social</th><td>8</td><td>.0</td><td>.0</td><td>94.1</td></tr>
+<tr><th>8810 Action sociale sans hébergement pour personnes âgées et pour personnes handicapées</th><td>13</td><td>.0</td><td>.1</td><td>94.1</td></tr>
+<tr><th>8899 Autre action sociale sans hébergement n.c.a.</th><td>7</td><td>.0</td><td>.0</td><td>94.1</td></tr>
+<tr><th>9001 Arts du spectacle vivant</th><td>6</td><td>.0</td><td>.0</td><td>94.2</td></tr>
+<tr><th>9003 Création artistique</th><td>10</td><td>.0</td><td>.0</td><td>94.2</td></tr>
+<tr><th>9004 Gestion de salles de spectacles et de conservatoires de musique</th><td>5</td><td>.0</td><td>.0</td><td>94.2</td></tr>
+<tr><th>9101 Gestion des bibliothèques, des archives et des centres culturels</th><td>1</td><td>.0</td><td>.0</td><td>94.2</td></tr>
+<tr><th>9103 Gestion des sites et monuments historiques et des attractions touristiques similaires</th><td>2</td><td>.0</td><td>.0</td><td>94.2</td></tr>
+<tr><th>9200 Organisation de jeux de hasard et d'argent</th><td>2</td><td>.0</td><td>.0</td><td>94.2</td></tr>
+<tr><th>9312 Activités de clubs de sports</th><td>30</td><td>.0</td><td>.1</td><td>94.4</td></tr>
+<tr><th>9313 Activités des centres de culture physique</th><td>4</td><td>.0</td><td>.0</td><td>94.4</td></tr>
+<tr><th>9319 Autres activités liées au sport</th><td>4</td><td>.0</td><td>.0</td><td>94.4</td></tr>
+<tr><th>9321 Activités des parcs d'attractions et parcs à thèmes</th><td>7</td><td>.0</td><td>.0</td><td>94.4</td></tr>
+<tr><th>9329 Autres activités récréatives et de loisirs</th><td>32</td><td>.0</td><td>.1</td><td>94.6</td></tr>
+<tr><th>9411 Activités des organisations patronales et consulaires</th><td>1</td><td>.0</td><td>.0</td><td>94.6</td></tr>
+<tr><th>9491 Activités des organisations religieuses</th><td>49</td><td>.1</td><td>.2</td><td>94.8</td></tr>
+<tr><th>9499 Activités des organisations associatives n.c.a.</th><td>25</td><td>.0</td><td>.1</td><td>94.9</td></tr>
+<tr><th>9511 Réparation d'ordinateurs et d'équipements périphériques</th><td>3</td><td>.0</td><td>.0</td><td>94.9</td></tr>
+<tr><th>9512 Réparation d'équipements de communication</th><td>31</td><td>.0</td><td>.1</td><td>95.0</td></tr>
+<tr><th>9521 Réparation de produits électroniques grand public</th><td>8</td><td>.0</td><td>.0</td><td>95.1</td></tr>
+<tr><th>9522 Réparation d'appareils électroménagers et d'équipements pour la maison et le jardin</th><td>16</td><td>.0</td><td>.1</td><td>95.1</td></tr>
+<tr><th>9523 Réparation de chaussures et d'articles en cuir</th><td>13</td><td>.0</td><td>.1</td><td>95.2</td></tr>
+<tr><th>9524 Réparation de meubles et d'équipements du foyer</th><td>10</td><td>.0</td><td>.0</td><td>95.2</td></tr>
+<tr><th>9525 Réparation d'articles d'horlogerie et de bijouterie</th><td>1</td><td>.0</td><td>.0</td><td>95.2</td></tr>
+<tr><th>9529 Réparation d'autres biens personnels et domestiques</th><td>3</td><td>.0</td><td>.0</td><td>95.2</td></tr>
+<tr><th>9601 Blanchisserie-teinturerie</th><td>21</td><td>.0</td><td>.1</td><td>95.3</td></tr>
+<tr><th>9602 Coiffure et soins de beauté</th><td>298</td><td>.4</td><td>1.3</td><td>96.6</td></tr>
+<tr><th>9603 Services funéraires</th><td>1</td><td>.0</td><td>.0</td><td>96.6</td></tr>
+<tr><th>9605 Bains et autres soins corporels</th><td>46</td><td>.1</td><td>.2</td><td>96.8</td></tr>
+<tr><th>9609 Autres services personnels n.c.a.</th><td>416</td><td>.5</td><td>1.8</td><td>98.5</td></tr>
+<tr><th>9700 Activités des ménages en tant qu'employeurs de personnel domestique</th><td>302</td><td>.4</td><td>1.3</td><td>99.8</td></tr>
+<tr><th>9810 Activités indifférenciées des ménages en tant que producteurs de biens pour usage propre</th><td>3</td><td>.0</td><td>.0</td><td>99.8</td></tr>
+<tr><th>9820 Activités indifférenciées des ménages en tant que producteurs de services pour usage propre</th><td>38</td><td>.0</td><td>.2</td><td>100.0</td></tr>
+<tr><th>9900 Activités des organisations et organismes extraterritoriaux</th><td>4</td><td>.0</td><td>.0</td><td>100.0</td></tr>
+<tr><th>Total</th><td>23738</td><td>28.6</td><td>100.0</td><td class=" hal">&nbsp;</td></tr>
+<tr><th rowspan="5">Missing</th><th>99 Activités non déclarées</th><td>10</td><td>.0</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>99997 Chômeurs dont l'exercice d'une activité professionnelle antérieure est non déterminé</th><td>3</td><td>.0</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>99998 Chômeurs n'ayant jamais travaillé</th><td>1387</td><td>1.7</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>99999 Inactifs</th><td>57748</td><td>69.7</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th>Total</th><td>59148</td><td>71.4</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+<tr><th colspan="2">Total</th><td>82886</td><td>100.0</td><td class=" hal">&nbsp;</td><td class=" hal">&nbsp;</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>
