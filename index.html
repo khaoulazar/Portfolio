@@ -15750,11 +15750,15 @@ print(df.isna().sum())
 											</div>
 										</div>
 										<h5 style="font-size:1.1em; margin-top:24px; margin-bottom:4px;">8- The Elbow method</h5>
-										<img src="images/re-code-40.png" alt="" style="width:350px; max-width:100%; height:auto; display:block; margin: 10px 0;">
-										<img src="images/re-code-41.png" alt="" style="width:350px; max-width:100%; height:auto; display:block; margin: 10px 0;">
 										<div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:nowrap; margin:10px 0;">
-											<img src="images/re-output-41.png" alt="" style="width:550px; max-width:100%; height:auto; display:block; flex-shrink:0;">
-											<p style="margin:0; margin-top:35px; flex:1 1 auto;">The elbow plot shows that the inertia (how close the records are to the center of their cluster) decreases as the number of clusters K increases.<br><br>The Elbow point appears at k=2, after that point the curve is noticeably flatter.</p>
+											<div style="display:flex; flex-direction:column; flex-shrink:0;">
+												<img src="images/re-code-40.png" alt="" style="width:350px; max-width:100%; height:auto; display:block;">
+												<img src="images/re-code-41.png" alt="" style="width:350px; max-width:100%; height:auto; display:block; margin-top:10px;">
+											</div>
+											<div style="flex:1 1 auto; display:flex; flex-direction:column; align-items:center;">
+												<img src="images/re-output-41.png" alt="" style="width:550px; max-width:100%; height:auto; display:block;">
+												<p style="margin-top:14px; max-width:550px;">The elbow plot shows that the inertia (how close the records are to the center of their cluster) decreases as the number of clusters K increases.<br><br>The Elbow point appears at k=2, after that point the curve is noticeably flatter.</p>
+											</div>
 										</div>
 										<h5 style="font-size:1.1em; margin-top:24px; margin-bottom:4px;">9- Cluster Profiling (K= 2 clusters )</h5>
 										<div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:nowrap; margin:10px 0;">
@@ -15778,26 +15782,26 @@ print(df.isna().sum())
 											</div>
 										</div>
 										<h5 style="font-size:1.1em; margin-top:24px; margin-bottom:4px;">Numerical variables</h5>
-										<div style="display:flex; gap:16px; align-items:center; flex-wrap:nowrap; margin:10px 0;">
+										<div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:nowrap; margin:0;">
 											<img src="images/re-output-43.png" alt="" style="width:450px; max-width:100%; height:auto; display:block; flex-shrink:0;">
 											<div style="flex:1 1 auto; display:flex; justify-content:center;">
 												<table style="border-collapse: collapse; font-size: 1em; max-width:560px; color:#000;">
 													<thead>
 														<tr style="border-top:1px solid #000; border-bottom:1px solid #000;">
-															<th style="padding:6px 10px; text-align:left;">Smaller properties / condo<br>cluster 0</th>
-															<th style="padding:6px 10px; text-align:left;">Larger properties<br>cluster 1</th>
+															<th style="padding:4px 10px; text-align:left; font-weight:700;">Smaller properties / condo<br>cluster 0</th>
+															<th style="padding:4px 10px; text-align:left; font-weight:700;">Larger properties<br>cluster 1</th>
 														</tr>
 													</thead>
 													<tbody>
-														<tr><td style="padding:6px 10px; background:#eef1f5;">2 bedrooms</td><td style="padding:6px 10px;">4 bedrooms</td></tr>
-														<tr><td style="padding:6px 10px; background:#eef1f5;">1.5 bathrooms</td><td style="padding:6px 10px;">3 bathrooms</td></tr>
-														<tr><td style="padding:6px 10px; background:#eef1f5;">1392 sqft living area</td><td style="padding:6px 10px;">3019 sqft living area</td></tr>
-														<tr><td style="padding:6px 10px; background:#eef1f5;">1381 sqft lot</td><td style="padding:6px 10px;">7192 sqft lot</td></tr>
-														<tr><td style="padding:6px 10px; background:#eef1f5;">73.9% condos</td><td style="padding:6px 10px;">Duplexes, detached houses and triplexes</td></tr>
-														<tr><td style="padding:6px 10px; background:#eef1f5;">HasPool: 8.2%</td><td style="padding:6px 10px;">HasPool: 7.3%</td></tr>
-														<tr><td style="padding:6px 10px; background:#eef1f5;">HasBasement: 67.1%</td><td style="padding:6px 10px;">HasBasement: 61.8%</td></tr>
-														<tr><td style="padding:6px 10px; background:#eef1f5;">Median sale price 512 800 CAD</td><td style="padding:6px 10px;">Median sale price 762 800 CAD</td></tr>
-														<tr style="border-bottom:1px solid #000;"><td style="padding:6px 10px; background:#eef1f5;">Mean sale price 535 599 CAD</td><td style="padding:6px 10px;">Mean sale price 788 095 CAD</td></tr>
+														<tr><td style="padding:4px 10px; background:#eef1f5;">2 bedrooms</td><td style="padding:4px 10px;">4 bedrooms</td></tr>
+														<tr><td style="padding:4px 10px; background:#eef1f5;">1.5 bathrooms</td><td style="padding:4px 10px;">3 bathrooms</td></tr>
+														<tr><td style="padding:4px 10px; background:#eef1f5;">1392 sqft living area</td><td style="padding:4px 10px;">3019 sqft living area</td></tr>
+														<tr><td style="padding:4px 10px; background:#eef1f5;">1381 sqft lot</td><td style="padding:4px 10px;">7192 sqft lot</td></tr>
+														<tr><td style="padding:4px 10px; background:#eef1f5;">73.9% condos</td><td style="padding:4px 10px;">Duplexes, detached houses and triplexes</td></tr>
+														<tr><td style="padding:4px 10px; background:#eef1f5;">HasPool: 8.2%</td><td style="padding:4px 10px;">HasPool: 7.3%</td></tr>
+														<tr><td style="padding:4px 10px; background:#eef1f5;">HasBasement: 67.1%</td><td style="padding:4px 10px;">HasBasement: 61.8%</td></tr>
+														<tr><td style="padding:4px 10px; background:#eef1f5;">Median sale price 512 800 CAD</td><td style="padding:4px 10px;">Median sale price 762 800 CAD</td></tr>
+														<tr style="border-bottom:1px solid #000;"><td style="padding:4px 10px; background:#eef1f5;">Mean sale price 535 599 CAD</td><td style="padding:4px 10px;">Mean sale price 788 095 CAD</td></tr>
 													</tbody>
 												</table>
 											</div>
@@ -15805,8 +15809,8 @@ print(df.isna().sum())
 										<h5 style="font-size:1.1em; margin-top:24px; margin-bottom:4px;">Categorical variables</h5>
 										<div style="display:flex; gap:16px; align-items:flex-start; flex-wrap:nowrap; margin:10px 0;">
 											<div style="display:flex; flex-direction:column;">
-												<img src="images/re-output-43b.png" alt="" style="width:600px; max-width:100%; height:auto; display:block;">
-												<img src="images/re-output-43c.png" alt="" style="width:600px; max-width:100%; height:auto; display:block; margin-top:10px;">
+												<img src="images/re-output-43b.png" alt="" style="width:480px; max-width:100%; height:auto; display:block;">
+												<img src="images/re-output-43c.png" alt="" style="width:480px; max-width:100%; height:auto; display:block; margin-top:10px;">
 											</div>
 											<div style="display:flex; flex-direction:column;">
 												<h5 style="font-size:1.15em; margin-top:0; margin-bottom:4px;">The binary variables</h5>
