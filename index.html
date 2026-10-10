@@ -50,11 +50,197 @@
 			/* Hackathon project page: numbered section titles in coral */
 			#page-project-mila-hackathon h3 { color: #f56a6a; }
 		</style>
+			<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,400italic,600italic|Roboto+Slab:400,700" />
+		<style>
+			/* Sidebar markup now comes before #main in the HTML (so it renders immediately);
+			   flipping the flex direction keeps it on the left exactly as before. */
+			#wrapper { -moz-flex-direction: row; -webkit-flex-direction: row; -ms-flex-direction: row; flex-direction: row; }
+		</style>
+			<!-- The toggle link ("3 lines") that main.js creates lives inside
+			     #sidebar. The template's own CSS only shows/keeps it usable at
+			     narrow (<=large) breakpoints — at wider widths it was designed to
+			     assume the sidebar is always visible, so no toggle was needed there.
+			     Since we now force the sidebar closed at every width, this override
+			     keeps that exact same existing button visible and clickable at any
+			     screen size too, without moving or duplicating anything. -->
+			<style>
+				#sidebar a.toggle {
+					display: block !important;
+					visibility: visible !important;
+					opacity: 1 !important;
+					pointer-events: auto !important;
+				}
+			</style>
+			<!-- "Hi, I'm KHAOULA" and "Data Analyst" (both inside the same banner
+			     <h1>, split by a <br>) now use separate classes so their sizes
+			     can be set independently. -->
+			<style>
+				#banner h1 span.banner-line-name {
+					font-size: 0.65em !important;
+				}
+				#banner h1 span.banner-line-role {
+					font-size: 0.75em !important;
+				}
+			</style>
+			<!-- Force all PDF report containers to stay horizontally centered,
+			     regardless of any conflicting rule in main.css (the Editorial
+			     theme). Using !important here because inline margin:0 auto on
+			     the narrower containers (labor-market, JPO) was being
+			     overridden on the live site. -->
+			<style>
+				#pdf-container-report-sales,
+				#pdf-container-monitoring,
+				#pdf-container-labor-market,
+				#pdf-container-ppt,
+				#pdf-container-jpo {
+					display: block !important;
+					margin-left: auto !important;
+					margin-right: auto !important;
+				}
+			</style>
+			<!-- Darken the site's default gray body text slightly and bump its size,
+			     across every paragraph on the site — titles (h1/h2/h3) are never
+			     targeted here, only <p> text. Text that already has its own inline
+			     color (like the French subtitle) stays as it is. -->
+			<style>
+				p {
+					color: #555555 !important;
+					font-size: 1.15em !important;
+				}
+			</style>
+			<!-- Slightly darken the tech-stack badge text (Python, SQL, Power BI...),
+			     which otherwise inherits a very light default color. -->
+			<style>
+				.tech-badges li {
+					color: #444444 !important;
+				}
+			</style>
+			<!-- Sidebar section titles ("Menu", "Data analytics topics",
+			     "Projects | Presentations", "Get in touch"), dropdown submenu item
+			     titles, and the "Homepage" link: black text, slightly bigger.
+			     "Homepage", "Data analytics topics", and "Projects | Presentations"
+			     are also bold. Font-family is set via JS below, to match the
+			     banner's "Hi, I'm KHAOULA" heading font exactly. -->
+			<style>
+				#sidebar .opener,
+				#sidebar nav#menu ul ul a,
+				#sidebar nav#menu > ul > li > a,
+				#sidebar header.major h2 {
+					color: #000000 !important;
+					font-size: 1.15em !important;
+					text-transform: none !important;
+				}
+
+				#sidebar .opener,
+				#sidebar nav#menu > ul > li > a {
+					font-weight: bold !important;
+				}
+
+				/* "Menu" heading specifically, a bit bigger than the rest */
+				#sidebar nav#menu > header.major h2 {
+					font-size: 1.35em !important;
+				}
+			</style>
 	</head>
 	<body class="is-preload">
 
 		<!-- Wrapper -->
 			<div id="wrapper">
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="#" data-page="page-home">Homepage</a></li>
+										<li>
+											<span class="opener">Experience highlights</span>
+											<ul>
+												<li><a href="#" data-page="page-home" data-scroll-to="hl-data-quality">Data quality &amp; validation</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="hl-root-cause">Root-cause analysis &amp; BI</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="hl-predictive">Predictive modeling</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="hl-automation">Reporting automation</a></li>
+											</ul>
+										</li>
+										<li>
+											<span class="opener">Projects | Presentations</span>
+											<ul>
+												<li><a href="#" data-page="page-home" data-scroll-to="title-aerospace-manufacturing">Canadian Aerospace Manufacturing Performance Analytics</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="title-real-estate">Montreal Real Estate Analytics: Price Prediction &amp; Portfolio Segmentation</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="title-monitoring-dashboard">Data quality and field progress monitoring report</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="title-cpi-automation">Automation of the Consumer Price Index (CPI) Report in R</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="title-mila-hackathon">Safer AI for Canadian Youth Mental Health - Hackathon MILA 2026</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="title-sales-dashboard">USA Sales performance analytics report</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="title-ene">Production des Statistiques du Marché du Travail</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="title-labor-market">Accès des lauréats de la formation professionnelle au marché du travail au Maroc</a></li>
+												<li><a href="#" data-page="page-home" data-scroll-to="title-jpo">Système Statistique National au Maroc</a></li>
+											</ul>
+										</li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>Thank you for visiting my portfolio website. Feel free to explore more about my work. Whether you are a potential employer or someone with similar interests, I'm excited to share my journey with you.<br>If you have any questions or if there's a project you'd like to discuss, please don't hesitate to get in touch through the contact form below.</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="mailto:zarouale.khaoula@gmail.com">zarouale.khaoula@gmail.com</a></li>
+										<li class="icon solid fa-phone">+1 (438) 448-5375</li>
+									</ul>
+								</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<!-- Force the sidebar to start closed on every page load, regardless of
+			     window width. main.js evaluates breakpoints and can re-open the
+			     sidebar (remove "inactive") slightly after our own DOMContentLoaded
+			     code ran, which is why it kept staying open — so we force it closed
+			     again after everything (including main.js) has fully settled. -->
+			<script>
+				function forceSidebarClosed() {
+					var sidebarEl = document.getElementById('sidebar');
+					if (sidebarEl) {
+						sidebarEl.classList.add('inactive');
+					}
+				}
+
+				document.addEventListener('DOMContentLoaded', forceSidebarClosed);
+				window.addEventListener('load', forceSidebarClosed);
+			</script>
+			<script>
+				// Same effect as before, applied as soon as the sidebar exists
+				// instead of after the whole page has downloaded.
+				forceSidebarClosed();
+				setTimeout(function () { document.body.classList.remove('is-preload'); }, 100);
+			</script>
+
 
 				<!-- Main -->
 					<div id="main">
@@ -36755,191 +36941,28 @@ with pd.ExcelWriter(output_file, engine=&quot;openpyxl&quot;) as writer:
 						</div>
 					</div>
 
-				<!-- Sidebar -->
-					<div id="sidebar">
-						<div class="inner">
 
-							<!-- Search -->
-								<section id="search" class="alt">
-									<form method="post" action="#">
-										<input type="text" name="query" id="query" placeholder="Search" />
-									</form>
-								</section>
-
-							<!-- Menu -->
-								<nav id="menu">
-									<header class="major">
-										<h2>Menu</h2>
-									</header>
-									<ul>
-										<li><a href="#" data-page="page-home">Homepage</a></li>
-										<li>
-											<span class="opener">Experience highlights</span>
-											<ul>
-												<li><a href="#" data-page="page-home" data-scroll-to="hl-data-quality">Data quality &amp; validation</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="hl-root-cause">Root-cause analysis &amp; BI</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="hl-predictive">Predictive modeling</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="hl-automation">Reporting automation</a></li>
-											</ul>
-										</li>
-										<li>
-											<span class="opener">Projects | Presentations</span>
-											<ul>
-												<li><a href="#" data-page="page-home" data-scroll-to="title-aerospace-manufacturing">Canadian Aerospace Manufacturing Performance Analytics</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="title-real-estate">Montreal Real Estate Analytics: Price Prediction &amp; Portfolio Segmentation</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="title-monitoring-dashboard">Data quality and field progress monitoring report</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="title-cpi-automation">Automation of the Consumer Price Index (CPI) Report in R</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="title-mila-hackathon">Safer AI for Canadian Youth Mental Health - Hackathon MILA 2026</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="title-sales-dashboard">USA Sales performance analytics report</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="title-ene">Production des Statistiques du Marché du Travail</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="title-labor-market">Accès des lauréats de la formation professionnelle au marché du travail au Maroc</a></li>
-												<li><a href="#" data-page="page-home" data-scroll-to="title-jpo">Système Statistique National au Maroc</a></li>
-											</ul>
-										</li>
-									</ul>
-								</nav>
-
-							<!-- Section -->
-								<section>
-									<header class="major">
-										<h2>Get in touch</h2>
-									</header>
-									<p>Thank you for visiting my portfolio website. Feel free to explore more about my work. Whether you are a potential employer or someone with similar interests, I'm excited to share my journey with you.<br>If you have any questions or if there's a project you'd like to discuss, please don't hesitate to get in touch through the contact form below.</p>
-									<ul class="contact">
-										<li class="icon solid fa-envelope"><a href="mailto:zarouale.khaoula@gmail.com">zarouale.khaoula@gmail.com</a></li>
-										<li class="icon solid fa-phone">+1 (438) 448-5375</li>
-									</ul>
-								</section>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
-
-						</div>
-					</div>
 
 			</div>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
 
-			<!-- Force the sidebar to start closed on every page load, regardless of
-			     window width. main.js evaluates breakpoints and can re-open the
-			     sidebar (remove "inactive") slightly after our own DOMContentLoaded
-			     code ran, which is why it kept staying open — so we force it closed
-			     again after everything (including main.js) has fully settled. -->
-			<script>
-				function forceSidebarClosed() {
-					var sidebarEl = document.getElementById('sidebar');
-					if (sidebarEl) {
-						sidebarEl.classList.add('inactive');
-					}
-				}
-
-				document.addEventListener('DOMContentLoaded', forceSidebarClosed);
-				window.addEventListener('load', forceSidebarClosed);
-			</script>
 
 			<!-- (Global page scale removed — it was shrinking the homepage
 			     content too, which didn't need it; report page sizes are
 			     already controlled independently via their own max-width
 			     settings on each pdf-container.) -->
 
-			<!-- The toggle link ("3 lines") that main.js creates lives inside
-			     #sidebar. The template's own CSS only shows/keeps it usable at
-			     narrow (<=large) breakpoints — at wider widths it was designed to
-			     assume the sidebar is always visible, so no toggle was needed there.
-			     Since we now force the sidebar closed at every width, this override
-			     keeps that exact same existing button visible and clickable at any
-			     screen size too, without moving or duplicating anything. -->
-			<style>
-				#sidebar a.toggle {
-					display: block !important;
-					visibility: visible !important;
-					opacity: 1 !important;
-					pointer-events: auto !important;
-				}
-			</style>
 
-			<!-- "Hi, I'm KHAOULA" and "Data Analyst" (both inside the same banner
-			     <h1>, split by a <br>) now use separate classes so their sizes
-			     can be set independently. -->
-			<style>
-				#banner h1 span.banner-line-name {
-					font-size: 0.65em !important;
-				}
-				#banner h1 span.banner-line-role {
-					font-size: 0.75em !important;
-				}
-			</style>
 
-			<!-- Force all PDF report containers to stay horizontally centered,
-			     regardless of any conflicting rule in main.css (the Editorial
-			     theme). Using !important here because inline margin:0 auto on
-			     the narrower containers (labor-market, JPO) was being
-			     overridden on the live site. -->
-			<style>
-				#pdf-container-report-sales,
-				#pdf-container-monitoring,
-				#pdf-container-labor-market,
-				#pdf-container-ppt,
-				#pdf-container-jpo {
-					display: block !important;
-					margin-left: auto !important;
-					margin-right: auto !important;
-				}
-			</style>
 
-			<!-- Darken the site's default gray body text slightly and bump its size,
-			     across every paragraph on the site — titles (h1/h2/h3) are never
-			     targeted here, only <p> text. Text that already has its own inline
-			     color (like the French subtitle) stays as it is. -->
-			<style>
-				p {
-					color: #555555 !important;
-					font-size: 1.15em !important;
-				}
-			</style>
 
-			<!-- Slightly darken the tech-stack badge text (Python, SQL, Power BI...),
-			     which otherwise inherits a very light default color. -->
-			<style>
-				.tech-badges li {
-					color: #444444 !important;
-				}
-			</style>
 
-			<!-- Sidebar section titles ("Menu", "Data analytics topics",
-			     "Projects | Presentations", "Get in touch"), dropdown submenu item
-			     titles, and the "Homepage" link: black text, slightly bigger.
-			     "Homepage", "Data analytics topics", and "Projects | Presentations"
-			     are also bold. Font-family is set via JS below, to match the
-			     banner's "Hi, I'm KHAOULA" heading font exactly. -->
-			<style>
-				#sidebar .opener,
-				#sidebar nav#menu ul ul a,
-				#sidebar nav#menu > ul > li > a,
-				#sidebar header.major h2 {
-					color: #000000 !important;
-					font-size: 1.15em !important;
-					text-transform: none !important;
-				}
 
-				#sidebar .opener,
-				#sidebar nav#menu > ul > li > a {
-					font-weight: bold !important;
-				}
 
-				/* "Menu" heading specifically, a bit bigger than the rest */
-				#sidebar nav#menu > header.major h2 {
-					font-size: 1.35em !important;
-				}
-			</style>
+
+
+
+
 
 			<!-- Match the sidebar titles' font to the banner heading's real font
 			     ("Hi, I'm KHAOULA"), read at runtime instead of guessing a name. -->
@@ -37187,5 +37210,20 @@ with pd.ExcelWriter(output_file, engine=&quot;openpyxl&quot;) as writer:
 				});
 			</script>
 
+	
+			<script>
+				(function ($) {
+					if (!window.browser || !$) return;
+					if (!browser.canUse('object-fit') || browser.name == 'safari')
+						$('.image.object').each(function () {
+							var $this = $(this), $img = $this.children('img');
+							if ($this.data('ofDone')) return; $this.data('ofDone', 1);
+							$img.css('opacity', '0');
+							$this.css('background-image', 'url("' + $img.attr('src') + '")')
+								.css('background-size', $img.css('object-fit') ? $img.css('object-fit') : 'cover')
+								.css('background-position', $img.css('object-position') ? $img.css('object-position') : 'center');
+						});
+				})(window.jQuery);
+			</script>
 	</body>
 </html>
