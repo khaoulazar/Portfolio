@@ -37096,6 +37096,10 @@ with pd.ExcelWriter(output_file, engine=&quot;openpyxl&quot;) as writer:
 						sections.forEach(function (sec) {
 							sec.style.display = (sec.id === id) ? 'block' : 'none';
 						});
+						// Count each project page as its own page view in GoatCounter
+						if (id !== 'page-home' && window.goatcounter && window.goatcounter.count) {
+							window.goatcounter.count({ path: location.pathname + '#' + id, title: id, event: false });
+						}
 						// LinkedIn / Resume / CV links are shown on the homepage only
 						document.body.classList.toggle('not-home', id !== 'page-home');
 						window.scrollTo(0, 0);
@@ -37225,5 +37229,8 @@ with pd.ExcelWriter(output_file, engine=&quot;openpyxl&quot;) as writer:
 						});
 				})(window.jQuery);
 			</script>
+				<!-- Visitor statistics (GoatCounter: no cookies, no visual impact) -->
+			<script data-goatcounter="https://khaoulazar.goatcounter.com/count"
+					async src="https://gc.zgo.at/count.js"></script>
 	</body>
 </html>
