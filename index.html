@@ -20030,10 +20030,10 @@ function initAllLazyTables() {
 															<span style="display:block; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; line-height: 1.3; color: #f56a6a;">Data Integration &amp; SQL Data Modeling</span>
 														</div>
 														<div class="theme-card" data-theme="theme-performance-kpi" style="cursor: pointer; border: 2px solid #f56a6a; border-radius: 8px; padding: 14px 8px; min-height: 92px; box-sizing: border-box; background: #fff; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; text-align: center;">
-															<span style="display:block; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; line-height: 1.3; color: #f56a6a;">Performance analysis and KPI Development</span>
+															<span style="display:block; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; line-height: 1.3; color: #f56a6a;">Performance analysis and KPI Development in SQL</span>
 														</div>
 														<div class="theme-card" data-theme="theme-powerbi-viz" style="cursor: pointer; border: 2px solid #f56a6a; border-radius: 8px; padding: 14px 8px; min-height: 92px; box-sizing: border-box; background: #fff; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; text-align: center;">
-															<span style="display:block; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; line-height: 1.3; color: #f56a6a;">Semantic Model Design &amp; DAX Analytics</span>
+															<span style="display:block; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; line-height: 1.3; color: #f56a6a;">Semantic Model Design &amp; DAX Analytics in Power BI</span>
 														</div>
 														<div class="theme-card" data-theme="theme-powerbi-insights" style="cursor: pointer; border: 2px solid #f56a6a; border-radius: 8px; padding: 14px 8px; min-height: 92px; box-sizing: border-box; background: #fff; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; text-align: center;">
 															<span style="display:block; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; line-height: 1.3; color: #f56a6a;">Power BI Data Visualization &amp; Insights</span>
@@ -36805,13 +36805,13 @@ with pd.ExcelWriter(output_file, engine=&quot;openpyxl&quot;) as writer:
 														<p>A multi-page interactive Power BI report was developed, translating procurement, production, quality, inventory and customer delivery data into an end-to-end operational performance view.</p>
 														<div id="pbi-report-pages" style="margin: 16px 0 24px 0;">
 															<div class="rp-buttons" style="display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px;">
-																<button type="button" class="rp-btn active" data-rp="rp-executive" style="cursor: pointer; border: none; border-radius: 8px; padding: 10px 18px; background: #fff; color: #1f6fb2; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; white-space: nowrap; box-shadow: 0 4px 10px rgba(31,111,178,0.25); height: auto; line-height: 1.4; text-transform: none; letter-spacing: normal; transition: all 0.2s ease;">Executive Overview</button>
+																<button type="button" class="rp-btn" data-rp="rp-executive" style="cursor: pointer; border: none; border-radius: 8px; padding: 10px 18px; background: #fff; color: #1f6fb2; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; white-space: nowrap; box-shadow: 0 4px 10px rgba(31,111,178,0.25); height: auto; line-height: 1.4; text-transform: none; letter-spacing: normal; transition: all 0.2s ease;">Executive Overview</button>
 																<button type="button" class="rp-btn" data-rp="rp-procurement" style="cursor: pointer; border: none; border-radius: 8px; padding: 10px 18px; background: #fff; color: #1f6fb2; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; white-space: nowrap; box-shadow: 0 4px 10px rgba(31,111,178,0.25); height: auto; line-height: 1.4; text-transform: none; letter-spacing: normal; transition: all 0.2s ease;">Procurement &amp; Suppliers</button>
 																<button type="button" class="rp-btn" data-rp="rp-production" style="cursor: pointer; border: none; border-radius: 8px; padding: 10px 18px; background: #fff; color: #1f6fb2; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; white-space: nowrap; box-shadow: 0 4px 10px rgba(31,111,178,0.25); height: auto; line-height: 1.4; text-transform: none; letter-spacing: normal; transition: all 0.2s ease;">Production &amp; Efficiency</button>
 																<button type="button" class="rp-btn" data-rp="rp-quality" style="cursor: pointer; border: none; border-radius: 8px; padding: 10px 18px; background: #fff; color: #1f6fb2; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; white-space: nowrap; box-shadow: 0 4px 10px rgba(31,111,178,0.25); height: auto; line-height: 1.4; text-transform: none; letter-spacing: normal; transition: all 0.2s ease;">Quality &amp; Inventory</button>
-																<button type="button" class="rp-btn" data-rp="rp-delivery" style="cursor: pointer; border: none; border-radius: 8px; padding: 10px 18px; background: #fff; color: #1f6fb2; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; white-space: nowrap; box-shadow: 0 4px 10px rgba(31,111,178,0.25); height: auto; line-height: 1.4; text-transform: none; letter-spacing: normal; transition: all 0.2s ease;">Customer &amp; Delivery</button>
+																<button type="button" class="rp-btn active" data-rp="rp-delivery" style="cursor: pointer; border: none; border-radius: 8px; padding: 10px 18px; background: #fff; color: #1f6fb2; font-family: 'Roboto Slab', serif; font-weight: 700; font-size: 0.9em; white-space: nowrap; box-shadow: 0 4px 10px rgba(31,111,178,0.25); height: auto; line-height: 1.4; text-transform: none; letter-spacing: normal; transition: all 0.2s ease;">Customer &amp; Delivery</button>
 															</div>
-															<div id="rp-executive" class="rp-panel" style="display:block;">
+															<div id="rp-executive" class="rp-panel" style="display:none;">
 															<div style="width: 100%; max-width: 1000px; overflow-x: auto; border: 1px solid #d9d9d9; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); background: #fff;">
 																<img loading="lazy" decoding="async" src="images/img_37e6d8600761.png" alt="Power BI report - Executive Overview page" style="display: block; width: 100%; height: auto;" />
 															</div>
@@ -36834,7 +36834,7 @@ with pd.ExcelWriter(output_file, engine=&quot;openpyxl&quot;) as writer:
 																<img loading="lazy" decoding="async" src="images/img_947c47c37f1f.png" alt="Power BI report - Quality &amp; Inventory page" style="display: block; width: 100%; height: auto;" />
 															</div>
 															</div>
-															<div id="rp-delivery" class="rp-panel" style="display:none;">
+															<div id="rp-delivery" class="rp-panel" style="display:block;">
 															<p>Evaluates fulfillment and delivery reliability while identifying customer segments, products and shipments most affected by delays.</p>
 															<div style="width: 100%; max-width: 1000px; overflow-x: auto; border: 1px solid #d9d9d9; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.15); background: #fff;">
 																<img loading="lazy" decoding="async" src="images/img_f9e6ca0d0318.png" alt="Power BI report - Customer &amp; Delivery page" style="display: block; width: 100%; height: auto;" />
